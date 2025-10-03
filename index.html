@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Alice', serif;
             background-color: #FFF9C4; /* More Yellow */
@@ -241,6 +244,22 @@
         .modal-content {
             transition: transform 0.3s ease;
         }
+        /* New Search Styles */
+        #search-wrapper #search-input {
+            width: 0;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out;
+        }
+        #search-wrapper.active #search-input {
+            width: 16rem; /* w-64 */
+            opacity: 1;
+            pointer-events: auto;
+            border-color: #FBC02D;
+            padding-left: 2.5rem;
+        }
     </style>
 </head>
 <body>
@@ -249,12 +268,12 @@
         <!-- Header Section with Search, Wishlist, and Cart -->
         <header class="sticky top-0 z-20 flex justify-between items-center py-4" style="background-color: #FFF9C4;">
             <!-- Search Bar -->
-            <div class="relative flex items-center">
+            <div id="search-component" class="relative">
                 <input id="search-input" type="text" placeholder="Search..." class="h-11 pl-10 pr-4 rounded-full text-sm focus:outline-none transition-all duration-300 w-11 focus:w-64 border-2 border-transparent focus:border-amber-400">
-                <span class="absolute left-0 top-0 mt-3 ml-3 text-gray-400">
+                <span class="absolute left-0 top-0 mt-3 ml-3 text-gray-400 pointer-events-none">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </span>
-                <div id="search-results" class="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg max-h-60 overflow-y-auto z-30 hidden"></div>
+                 <div id="search-results" class="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg max-h-60 overflow-y-auto z-30 hidden"></div>
             </div>
 
             <!-- Icons -->
@@ -398,20 +417,27 @@
                     product[header.trim()] = value;
                 });
                 
-                product.variants = (product.variants || '').split(':').map(v => {
-                    const parts = v.split('|').map(p => p.trim());
-                    const [size, price, ...images] = parts;
-                    return { 
-                        size: size || '', 
-                        price: parseFloat(price) || 0, 
-                        images: images.filter(Boolean)
-                    };
-                }).filter(v => v.size && v.price > 0);
+                product.variants = (product.variants || '').split(':').map(v => ({
+                    size: (v.split('|')[0] || '').trim(), 
+                    price: parseFloat(v.split('|')[1]) || 0,
+                    images: []
+                })).filter(v => v.size && v.price > 0);
                 
                 product.galleryImages = [
                     product.galleryImage1, product.galleryImage2, product.galleryImage3,
                     product.galleryImage4, product.galleryImage5, product.galleryImage6
                 ].filter(url => url && url.trim() !== '');
+
+                for(let i = 1; i <= 13; i++) {
+                    const field = `VariantImage${i}`;
+                    if (product[field] && product[field].includes('|')) {
+                        const [size, url] = product[field].split('|').map(s => s.trim());
+                        const targetVariant = product.variants.find(v => v.size === size);
+                        if(targetVariant) {
+                            targetVariant.images.push(url);
+                        }
+                    }
+                }
 
                 product.order = parseInt(product.order, 10) || 99;
                 return product;
@@ -465,11 +491,11 @@
 
         function createProductCardHTML(product) {
             const defaultVariant = product.variants[0];
-            const allImages = [product.imageUrl, ...product.galleryImages].filter(Boolean);
+            const mainGalleryImages = [product.imageUrl, ...product.galleryImages].filter(Boolean);
             return `
             <div class="product-card rounded-xl overflow-hidden flex flex-col" data-product-id="${product.id}" data-product-name="${product.name}" data-detailed-description="${product.detailedDescription || ''}" data-main-image="${product.imageUrl}">
                 <div class="product-image-container">
-                    ${buildGalleryHTML(allImages)}
+                    ${buildGalleryHTML(mainGalleryImages)}
                 </div>
                 <div class="p-6 flex flex-col flex-grow text-center">
                     <h3 class="text-xl font-brand font-bold text-gray-800">${product.name}</h3>
@@ -513,6 +539,9 @@
         function setupEventListeners() {
             document.body.addEventListener('click', e => {
                 const target = e.target;
+                if (!target.closest('#search-component')) {
+                     searchResultsContainer.classList.add('hidden');
+                }
                 if (target.closest('.category-btn')) handleCategoryClick(target.closest('.category-btn'));
                 if (target.closest('.quantity-btn')) handleQuantityClick(target.closest('.quantity-btn'));
                 if (target.closest('.add-to-cart-btn')) handleAddToCart(target.closest('.add-to-cart-btn'));
@@ -525,6 +554,7 @@
             document.body.addEventListener('change', e => {
                 if (e.target.matches('input[name^="variant-"]')) handleVariantChange(e.target);
             });
+            
             searchInput.addEventListener('input', handleLiveSearch);
             searchInput.addEventListener('keydown', e => {
                 if (e.key === 'Enter') {
@@ -632,9 +662,26 @@
         function handleCategoryClick(btn) {
             document.querySelectorAll('.category-btn.active').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            document.querySelectorAll('.product-section').forEach(s => s.classList.toggle('hidden', `#${s.id}` !== btn.dataset.target));
+            const targetId = btn.dataset.target;
+            document.querySelectorAll('.product-section').forEach(s => {
+                s.classList.toggle('hidden', `#${s.id}` !== targetId);
+            });
             searchInput.value = '';
             handleSearchFilter();
+
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                setTimeout(() => {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra margin
+        
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 100);
+            }
         }
         
         function handleQuantityClick(btn) {
@@ -668,7 +715,10 @@
             const card = btn.closest('.product-card');
             const v = card.querySelector('input[type="radio"]:checked');
             const imageElement = card.querySelector('.gallery-image.active');
-            const image = imageElement ? imageElement.src : card.dataset.mainImage;
+            let image = card.dataset.mainImage || 'https://placehold.co/100x100/FFF9C4/3E2723?text=No+Image';
+            if (imageElement) {
+                image = imageElement.src;
+            }
             const item = { id: card.dataset.productId, name: card.dataset.productName, image: image, variant: v.dataset.variant, price: parseFloat(v.value), quantity: parseInt(card.querySelector('.quantity-input').value) };
             addToCart(item);
             btn.classList.add('added');
@@ -685,7 +735,10 @@
             const card = btn.closest('.product-card');
             const v = card.querySelector('input[type="radio"]:checked');
             const imageElement = card.querySelector('.gallery-image.active');
-            const image = imageElement ? imageElement.src : card.dataset.mainImage;
+            let image = card.dataset.mainImage || 'https://placehold.co/100x100/FFF9C4/3E2723?text=No+Image';
+            if (imageElement) {
+                image = imageElement.src;
+            }
             const item = { id: card.dataset.productId, name: card.dataset.productName, image: image, variant: v.dataset.variant, price: parseFloat(v.value) };
             toggleWishlist(item, btn);
         }
