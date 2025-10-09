@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Sampoorna - Pure & Trusted Oils</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-301FER4EFB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-301FER4EFB');
+    </script>
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -11,952 +23,1673 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1811512062866346');
+    fbq('init', '2156564608170783');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1811512062866346&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=2156564608170783&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P2WCV5PQ');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DT5639KD58"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-DT5639KD58');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guru Sampoorna - Product Catalogue</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Alice', serif;
-            background-color: #FFF9C4; /* More Yellow */
-        }
-        .font-brand {
-            font-family: 'Playfair Display', serif;
-        }
-        .product-card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            border: 1px solid #F3E5F5;
-            background: white;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .btn-primary {
-            background-image: linear-gradient(to right, #f87171 0%, #ef4444 51%, #f87171 100%); /* Red Gradient */
-            background-size: 200% auto;
-            color: white;
-            transition: all 0.4s ease;
-            border: none;
-        }
-        .btn-primary:hover {
-            background-position: right center; /* change the direction of the change here */
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px 0 rgba(239, 68, 68, 0.4); /* Red Shadow */
-        }
-        .variant-label input:checked + span {
-            border-color: #8D6E63;
-            background-color: #EFEBE9;
-            color: #3E2723;
-            font-weight: 600;
-        }
-        /* Wishlist Heart Icon Styling */
-        .wishlist-btn .heart-icon {
-            fill: #d1d5db; /* Gray color for inactive */
-            stroke: #4b5563;
-            transition: all 0.2s ease-in-out;
-        }
-        .wishlist-btn.active .heart-icon {
-            fill: #ef4444; /* Red color for active */
-            stroke: #ef4444;
-        }
-        /* Sidebar transitions */
-        .sidebar {
-            transition: transform 0.3s ease-in-out;
-        }
-        .sidebar.open {
-            transform: translateX(0);
-        }
-        .sidebar.closed {
-            transform: translateX(100%);
-        }
-        /* Add to cart button animation */
-        .add-to-cart-btn.added {
-            background-color: #4caf50; /* Success Green */
-            transform: scale(1.05);
-        }
-        /* Price pop-up animation */
-        @keyframes price-popup-animation {
-            0% { transform: translateY(0) scale(0.8); opacity: 0; }
-            50% { transform: translateY(-25px) scale(1); opacity: 1; }
-            100% { transform: translateY(-50px) scale(0.8); opacity: 0; }
-        }
-        .price-popup {
-            position: absolute;
-            top: -15px;
-            right: 10px;
-            background-color: #22c55e;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 16px;
-            font-size: 14px;
-            font-weight: bold;
-            animation: price-popup-animation 1.5s ease-in-out forwards;
-            pointer-events: none;
-        }
-        /* To hide number input arrows */
-        input[type=number]::-webkit-inner-spin-button, 
-        input[type=number]::-webkit-outer-spin-button { 
-          -webkit-appearance: none; 
-          margin: 0; 
-        }
-        input[type=number] {
-          -moz-appearance: textfield;
-        }
-        /* Category Button Styles */
-        .category-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.2s ease-in-out;
-            background-color: #EFEBE9;
-            color: #6D4C41;
-            border: 2px solid transparent;
-        }
-        .category-btn:hover {
-            background-color: #D7CCC8;
-        }
-        .category-btn.active {
-            background-color: #FDD835; /* Dark Yellow */
-            color: #B71C1C; /* Red Text */
-            border-color: #FBC02D; 
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        /* Image Gallery Styles */
-        .product-image-container {
-            position: relative;
-            width: 100%;
-            height: 224px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background-color: #f9f5f1;
-        }
-        .product-image-container .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 10px;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .product-image-container .gallery-image.active {
-            opacity: 1;
-        }
-        .gallery-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 0.5rem;
-        }
-        .gallery-nav button {
-            background-color: rgba(255, 255, 255, 0.7);
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .gallery-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-        }
-        .gallery-dots .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-        }
-        .gallery-dots .dot.active {
-            background-color: rgba(0, 0, 0, 0.7);
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #f39c12;
+            --background-color: #fffaf0;
+            --text-color: #3d2c1c;
+            --card-bg: #ffffff;
+            --shadow-color: rgba(0, 0, 0, 0.08);
         }
 
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            margin-top: 4rem; /* Spacing after products */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+            overflow-x: hidden;
+            position: relative; /* Needed for the pseudo-element */
         }
-        .video-container iframe {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 105%;
-            height: 105%;
-            transform: translate(-50%, -50%);
-            border-radius: 0.75rem;
+        
+        /* --- Order Now Button --- */
+        #order-now-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            animation: blinkAnimation 4s infinite;
         }
-        /* Toast Notification */
-        .toast-notification {
+
+        #order-now-btn:hover {
+            background-color: #e67e22;
+            transform: scale(1.1); /* Slightly larger scale on hover */
+            animation-play-state: paused; /* Pause animation on hover */
+        }
+        
+        /* --- Language Toggle Button --- */
+        #lang-toggle {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
+            z-index: 1000;
+            background-color: var(--primary-color);
             color: white;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
             font-weight: 600;
-            z-index: 100;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #lang-toggle:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
+
+        /* --- New Glowing Border Effect --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(243, 156, 18, 0.15) 0%, rgba(211, 84, 0, 0) 70%);
+            z-index: -1; /* Places the glow behind the content */
+            pointer-events: none; /* Ensures it doesn't block interactions */
+        }
+
+
+        /* --- Header --- */
+        header {
+            padding: 80px 20px 20px; /* Increased top padding to avoid overlap with buttons */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 180px; /* Increased size for better visibility */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Alice', serif;
+            font-size: 4.2rem;
+            color: var(--primary-color);
+            margin: 0 0 10px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #7a5e43;
+            margin: 0;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes blinkAnimation {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 25px rgba(211, 84, 0, 0.4); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Scroll Animations */
+        .hidden {
             opacity: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            transform: translateX(120%);
-            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .toast-notification.show {
+
+        .visible {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
-        .toast-notification.error {
-            background-color: #ef4444; /* red-500 */
+
+
+        /* --- Main Content Sections --- */
+        main {
+            padding: 20px;
         }
-        .toast-notification.success {
-            background-color: #22c55e; /* green-500 */
+
+        .section {
+            max-width: 1100px;
+            margin: 80px auto;
         }
-        /* Loading Spinner */
-        .loader {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #8D6E63;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 4rem auto;
+
+        h2.section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        /* Modal Styles */
-        .modal-overlay {
-            transition: opacity 0.3s ease;
+        
+        /* --- About Us Section --- */
+        .about-us p {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1rem;
         }
-        .modal-content {
+        
+        /* --- Featured Products Section --- */
+        .product-slider-container {
+            position: relative;
+            max-width: 1100px;
+            margin: auto;
+            overflow-x: auto;
+            padding: 20px 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--secondary-color) var(--background-color);
+        }
+
+        .product-slider-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .product-slider-container::-webkit-scrollbar-track {
+            background: var(--background-color);
+        }
+        .product-slider-container::-webkit-scrollbar-thumb {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+        }
+        
+        .product-slider {
+            display: flex;
+            gap: 30px;
+            width: max-content;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            width: 280px;
+            text-align: center;
+            padding-bottom: 25px;
             transition: transform 0.3s ease;
         }
-        /* New Search Styles */
-        #search-wrapper #search-input {
-            width: 0;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: width 0.3s ease-in-out, opacity 0.2s ease-in-out;
+
+        .product-card:hover {
+            transform: translateY(-10px);
         }
-        #search-wrapper.active #search-input {
-            width: 16rem; /* w-64 */
-            opacity: 1;
-            pointer-events: auto;
-            border-color: #FBC02D;
-            padding-left: 2.5rem;
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain; /* Changed from cover to contain */
+            border-radius: 20px 20px 0 0;
+            padding: 10px; /* Added some padding to avoid edges */
+            box-sizing: border-box;
         }
+
+        .product-card-content {
+            padding: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin: 0 0 10px;
+        }
+        .product-card p {
+            font-size: 0.9rem;
+            color: #7a5e43;
+            margin-bottom: 20px;
+        }
+        
+        .product-card .order-btn {
+             display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .product-card .order-btn:hover {
+            background-color: #e67e22;
+        }
+        
+        /* --- Video Section --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 20px auto 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            background: #000;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transform: scale(1.3); /* Zoom in more to hide black bars */
+        }
+        
+        /* --- Journey of Purity Timeline --- */
+        .journey-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px 0;
+        }
+        
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--secondary-color);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .journey-step {
+            position: relative;
+            width: 50%;
+            padding: 10px 40px;
+            box-sizing: border-box;
+        }
+
+        .journey-step:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .journey-step:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .journey-icon {
+            position: absolute;
+            top: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 1;
+            border: 4px solid var(--background-color);
+        }
+
+        .journey-step:nth-child(odd) .journey-icon {
+            right: -25px;
+            transform: translateX(50%);
+        }
+
+        .journey-step:nth-child(even) .journey-icon {
+            left: -25px;
+            transform: translateX(-50%);
+        }
+        
+        .journey-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .journey-content p {
+            color: #7a5e43;
+            font-size: 0.9rem;
+        }
+
+
+        /* --- Grid Container for Cards --- */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* --- Generic Card Style --- */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px rgba(211, 84, 0, 0.1); /* Added glow */
+            padding: 35px 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(211, 84, 0, 0.15); /* Subtle colored border */
+        }
+        
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12), 0 0 45px rgba(243, 156, 18, 0.4); /* Enhanced glow on hover */
+        }
+
+        .card .icon {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 10px 0 5px;
+        }
+        
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #7a5e43;
+            margin: 0;
+        }
+
+        /* --- Customer Testimonials Section --- */
+        .testimonial-container {
+            position: relative;
+            max-width: 800px;
+            margin: auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            overflow: hidden;
+        }
+        
+        .testimonial-slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 40px;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.8s;
+        }
+
+        .testimonial-slide .stars {
+            color: #fbbc05;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-slide p.quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0 0 20px;
+            color: #555;
+        }
+
+        .testimonial-slide p.author {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-nav {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 12px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 22px;
+            transition: 0.3s ease;
+            user-select: none;
+        }
+        .testimonial-nav.prev { left: 10px; }
+        .testimonial-nav.next { right: 10px; }
+        .testimonial-nav:hover { color: var(--secondary-color); }
+
+        .google-reviews-link {
+            margin-top: 30px;
+        }
+
+        .review-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .review-btn:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
+
+        /* --- Availability Section --- */
+        .availability-section {
+             background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow-color);
+            padding: 40px;
+            max-width: 600px;
+            margin: 20px auto 0;
+            border: 1px solid rgba(211, 84, 0, 0.15);
+        }
+
+        .availability-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .platform-logo img {
+            height: 45px; /* Adjust height as needed */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .platform-logo:hover img {
+            transform: scale(1.05);
+        }
+
+        .delivery-info {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 60px;
+            padding: 20px 40px;
+            font-size: 0.9rem;
+            color: #7a5e43;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.4rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        /* --- General Modal Styles --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            animation: fadeIn 0.5s;
+            /* These properties are for when display is set to flex via JS */
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .close-modal {
+            color: #fff;
+            position: absolute;
+            top: -10px;
+            right: 5px;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #bbb;
+        }
+        
+        /* --- Visitors Modal --- */
+        .modal .slider-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .modal .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .modal .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .modal .slide img {
+            width: 100%;
+            height: auto;
+            max-height: 75vh;
+            object-fit: contain;
+            display: block;
+            background-color: #fff;
+        }
+
+        .modal .slide .caption {
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            background-color: var(--card-bg);
+            margin: 0;
+        }
+
+        .modal .prev, .modal .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.3s ease;
+            background-color: rgba(0,0,0,0.4);
+            user-select: none;
+        }
+
+        .modal .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .modal .prev {
+            left: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .modal .prev:hover, .modal .next:hover {
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        /* --- About Us Modal --- */
+        .about-modal-content {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 750px;
+            max-height: 90vh; /* Ensure modal is not taller than the screen */
+            overflow-y: auto; /* Allow content to scroll */
+        }
+
+        .about-modal-content .close-modal {
+            color: #aaa;
+            top: 15px;
+            right: 20px;
+            font-size: 30px;
+        }
+        
+        .team-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin: 20px 0 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            width: 160px;
+        }
+        
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin: 0 auto 15px;
+            border: 4px solid var(--secondary-color);
+            overflow: hidden; /* Crucial for circular images */
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the circle without distortion */
+        }
+        
+        .team-photo.founder {
+            width: 140px;
+            height: 140px;
+        }
+
+        .team-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .team-title {
+            color: #7a5e43;
+            margin: 4px 0 0;
+            font-size: 0.9rem;
+        }
+        
+        .about-paragraph {
+            text-align: left;
+            line-height: 1.8;
+            color: #7a5e43;
+        }
+        
+        /* --- AI Assistant --- */
+        #ai-assistant-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px; /* Moved from left to right */
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+            z-index: 999;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        #ai-assistant-btn:hover {
+            transform: scale(1.1);
+            background-color: #e67e22;
+        }
+
+        #ai-chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px; /* Moved from left to right */
+            left: auto; /* Unset left property */
+            width: 350px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1001;
+            flex-direction: column;
+            overflow: hidden;
+            transform-origin: bottom right; /* Changed transform origin */
+            animation: popIn 0.4s ease-out;
+        }
+
+        .ai-chat-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ai-chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .ai-chat-header .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .ai-lang-toggle-btn {
+            background: none;
+            border: 1px solid white;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+
+        .ai-chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .chat-message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .chat-message.user {
+            background-color: #e0e0e0;
+            color: #333;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+
+        .chat-message.ai {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        
+        .chat-message .chat-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-top: 10px;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--primary-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .chat-message .chat-btn-alt {
+            background-color: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        .chat-message .chat-btn:hover {
+            background-color: var(--secondary-color);
+            color: #fff;
+            border-color: var(--secondary-color);
+        }
+
+        .ai-chat-input-area {
+            display: flex;
+            border-top: 1px solid #eee;
+        }
+        
+        #ai-chat-input {
+            flex-grow: 1;
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        #ai-chat-send {
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 0 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #ai-chat-send:hover {
+            background-color: #e67e22;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2.section-title { font-size: 1.8rem; }
+            footer {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .philosophy-section {
+                padding: 60px 20px;
+                background-attachment: scroll; /* Disable parallax on mobile for performance */
+            }
+            .philosophy-content blockquote {
+                font-size: 1.2rem;
+            }
+             /* Timeline on mobile */
+            .journey-timeline::before { left: 25px; }
+            .journey-step { width: 100%; padding-left: 70px; padding-right: 20px; text-align: left !important; }
+            .journey-step:nth-child(even) { left: 0; }
+            .journey-icon { left: 0 !important; transform: translateX(0) !important; }
+
+            .about-modal-content {
+                padding: 30px 20px;
+                max-height: 85vh;
+            }
+            .team-container {
+                gap: 20px;
+            }
+            #ai-assistant-btn {
+                bottom: 20px;
+                right: 20px; /* Moved from left to right */
+            }
+            #ai-chat-modal {
+                left: 10px;
+                right: 10px;
+                bottom: 90px;
+                width: auto;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2WCV5PQ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <a href="https://gurusampoorna1.netlify.app/" target="_blank" id="order-now-btn" data-lang-en="Order Now" data-lang-hi="अभी ऑर्डर करें">Order Now</a>
+    <button id="lang-toggle">हिन्दी</button>
 
-    <div class="container mx-auto px-4 sm:px-6 md:px-8">
-        <!-- Header Section with Search, Wishlist, and Cart -->
-        <header class="sticky top-0 z-20 flex justify-between items-center py-4" style="background-color: #FFF9C4;">
-            <!-- Search Bar -->
-            <div id="search-component" class="relative">
-                <input id="search-input" type="text" placeholder="Search..." class="h-11 pl-10 pr-4 rounded-full text-sm focus:outline-none transition-all duration-300 w-11 focus:w-64 border-2 border-transparent focus:border-amber-400">
-                <span class="absolute left-0 top-0 mt-3 ml-3 text-gray-400 cursor-pointer" onclick="gtag('event', 'search_icon_click', { 'event_category': 'engagement', 'event_label': 'Search Icon' });">
-                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                </span>
-                 <div id="search-results" class="absolute top-full left-0 mt-1 w-64 bg-white rounded-md shadow-lg max-h-60 overflow-y-auto z-30 hidden"></div>
-            </div>
+    <header class="hidden">
+        <img src="https://i.ibb.co/G4bKRCy5/1002397847-removebg-preview-1-1.png" alt="Guru Sampoorna Logo" class="logo">
+        <h1 data-lang-en="Welcome to Guru Sampoorna" data-lang-hi="गुरु सम्पूर्ण में आपका स्वागत है">Welcome to Guru Sampoorna</h1>
+        <p class="subtitle" data-lang-en="Your trusted source for pure, high-quality edible oils." data-lang-hi="शुद्ध, उच्च-गुणवत्ता वाले खाद्य तेलों के लिए आपका विश्वसनीय स्रोत।">Your trusted source for pure, high-quality edible oils.</p>
+    </header>
 
-            <!-- Icons -->
-            <div class="flex items-center space-x-4">
-                <!-- Wishlist Icon -->
-                <button id="open-wishlist-btn" class="relative text-gray-600 hover:text-amber-800" onclick="gtag('event', 'wishlist_click', { 'event_category': 'engagement', 'event_label': 'Header Wishlist Icon' });">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
-                    <span id="wishlist-count-badge" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
-                </button>
-                <!-- Cart Icon -->
-                <button id="open-cart-btn" class="relative text-gray-600 hover:text-amber-800 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                    <span id="cart-count-badge" class="absolute -top-1 left-5 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
-                    <span id="cart-total-header" class="text-sm font-semibold text-amber-800 ml-2 hidden">₹0</span>
-                </button>
+    <main>
+        <!-- Our Promise Section -->
+        <section class="section about-us hidden" id="about-us">
+            <h2 class="section-title" data-lang-en="Our Promise" data-lang-hi="हमारा वादा">Our Promise</h2>
+            <p data-lang-en="At Guru Sampoorna, we believe in purity and tradition. We are dedicated to providing 100% natural, chemical-free oils, extracted using age-old methods to retain maximum nutrients and authentic flavor. Health and wellness for your family is our top priority." data-lang-hi="गुरु सम्पूर्ण में, हम पवित्रता और परंपरा में विश्वास करते हैं। हम 100% प्राकृतिक, रसायन-मुक्त तेल प्रदान करने के लिए समर्पित हैं, जो अधिकतम पोषक तत्वों और प्रामाणिक स्वाद को बनाए रखने के लिए पुरानी विधियों का उपयोग करके निकाले जाते हैं। आपके परिवार का स्वास्थ्य और कल्याण हमारी सर्वोच्च प्राथमिकता है।">At Guru Sampoorna, we believe in purity and tradition. We are dedicated to providing 100% natural, chemical-free oils, extracted using age-old methods to retain maximum nutrients and authentic flavor. Health and wellness for your family is our top priority.</p>
+        </section>
+        
+        <!-- Our Process in Action Section -->
+        <section class="section video-section hidden">
+            <h2 class="section-title" data-lang-en="Our Process in Action" data-lang-hi="हमारी प्रक्रिया क्रियान्वित">Our Process in Action</h2>
+            <div class="video-container">
+                <iframe loading="lazy" src="https://www.youtube.com/embed/z1PCp3nX-yk?autoplay=1&mute=1&loop=1&playlist=z1PCp3nX-yk&controls=0&showinfo=0&modestbranding=1" title="Guru Sampoorna Manufacturing Process" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
-        </header>
+        </section>
 
-        <!-- Main Content -->
-        <main class="pt-6">
-            <!-- Logo -->
-            <div class="flex justify-center items-center mb-10">
-                <img src="https://i.ibb.co/n8r4SFNH/1002397847-removebg-preview-1.png" alt="Guru Sampoorna Logo" class="w-40 sm:w-48 md:w-56 h-auto">
-            </div>
-
-            <!-- Category Buttons -->
-            <div id="category-buttons-container" class="flex justify-center items-center flex-wrap gap-4 mb-12">
-                 <!-- Category buttons will be dynamically inserted here -->
-            </div>
-
-            <!-- Categories Container -->
-            <div id="product-sections-container">
-                <!-- Product sections and cards will be dynamically inserted here -->
-                 <div class="loader"></div>
-            </div>
-            
-            <!-- Autoplaying Video Section -->
-            <div class="video-container mx-auto max-w-4xl rounded-xl shadow-lg">
-                <iframe 
-                    src="https://www.youtube.com/embed/z1PCp3nX-yk?autoplay=1&mute=1&controls=0&loop=1&playlist=z1PCp3nX-yk" 
-                    frameborder="0" 
-                    allow="autoplay; encrypted-media" 
-                    allowfullscreen
-                    class="rounded-xl"
-                ></iframe>
-            </div>
-
-             <!-- More About Us Button -->
-            <div class="text-center mt-12 mb-8">
-                <a href="https://gurusampoorna.netlify.app/" target="_blank" rel="noopener noreferrer" class="inline-block bg-amber-500 text-white font-bold text-lg py-3 px-10 rounded-full shadow-lg hover:bg-amber-600 transition-colors duration-300 transform hover:scale-105" onclick="gtag('event', 'about_us_click', { 'event_category': 'engagement', 'event_label': 'About Us Button' });">
-                    More About Us
+        <!-- Explore With Us Section -->
+        <section class="section hidden">
+            <h2 class="section-title" data-lang-en="Explore With Us" data-lang-hi="हमारे साथ अन्वेषण करें">Explore With Us</h2>
+            <div class="container">
+                <a href="https://wa.me/c/916262120120" target="_blank" class="card" onclick="gtag('event', 'price_list_click', { event_category: 'engagement', event_label: 'View Price List' });">
+                    <div class="icon"><i class="fa-solid fa-tags"></i></div>
+                    <h3 data-lang-en="View Price List" data-lang-hi="मूल्य सूची देखें">View Price List</h3>
+                    <p data-lang-en="Check our complete product catalog and latest prices on WhatsApp." data-lang-hi="व्हाट्सएप पर हमारी पूरी उत्पाद सूची और नवीनतम मूल्य देखें।">Check our complete product catalog and latest prices on WhatsApp.</p>
+                </a>
+                <a href="https://maps.app.goo.gl/kmsHJMQamBAQQs3y8" target="_blank" class="card" onclick="gtag('event', 'find_store_click', { event_category: 'engagement', event_label: 'Find Our Store' });">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3 data-lang-en="Find Our Store" data-lang-hi="हमारा स्टोर खोजें">Find Our Store</h3>
+                    <p data-lang-en="Get directions and visit us to explore our products in person." data-lang-hi="दिशा-निर्देश प्राप्त करें और हमारे उत्पादों को व्यक्तिगत रूप से देखने के लिए हमसे मिलें।">Get directions and visit us to explore our products in person.</p>
+                </a>
+                <a href="https://www.youtube.com/@gurusampoornataajaindore/videos" target="_blank" class="card" onclick="gtag('event', 'see_process_click', { event_category: 'engagement', event_label: 'See Our Process' });">
+                    <div class="icon"><i class="fa-solid fa-video"></i></div>
+                    <h3 data-lang-en="See Our Process" data-lang-hi="हमारी प्रक्रिया देखें">See Our Process</h3>
+                    <p data-lang-en="Watch how we manufacture our oils with care, transparency, and purity." data-lang-hi="देखें कि हम अपने तेलों का निर्माण देखभाल, पारदर्शिता और पवित्रता के साथ कैसे करते हैं।">Watch how we manufacture our oils with care, transparency, and purity.</p>
+                </a>
+                <a href="https://wa.me/916262120120" target="_blank" class="card" onclick="gtag('event', 'contact_us_click', { event_category: 'engagement', event_label: 'Contact Us' });">
+                    <div class="icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3 data-lang-en="Contact Us" data-lang-hi="हमसे संपर्क करें">Contact Us</h3>
+                    <p data-lang-en="Have questions? Tap here to chat with us directly for any queries." data-lang-hi="कोई सवाल है? किसी भी प्रश्न के लिए सीधे हमसे चैट करने के लिए यहां टैप करें।">Have questions? Tap here to chat with us directly for any queries.</p>
+                </a>
+                <a href="#" id="visitors-card" class="card">
+                    <div class="icon"><i class="fa-solid fa-people-group"></i></div>
+                    <h3 data-lang-en="Our Visitors" data-lang-hi="हमारे आगंतुक">Our Visitors</h3>
+                    <p data-lang-en="See happy customers and visitors at our store." data-lang-hi="हमारे स्टोर पर खुश ग्राहकों और आगंतुकों को देखें।">See happy customers and visitors at our store.</p>
+                </a>
+                <a href="#" id="about-us-card" class="card" onclick="gtag('event', 'about_us_click', { event_category: 'engagement', event_label: 'About Us' });">
+                    <div class="icon"><i class="fa-solid fa-info-circle"></i></div>
+                    <h3 data-lang-en="About Us" data-lang-hi="हमारे बारे में">About Us</h3>
+                    <p data-lang-en="Learn more about our story, mission, and values." data-lang-hi="हमारी कहानी, मिशन और मूल्यों के बारे में और जानें।">Learn more about our story, mission, and values.</p>
                 </a>
             </div>
-        </main>
-
-        <footer class="text-center mt-16 py-6 border-t border-amber-200"><p class="text-gray-600">&copy; 2024 Guru Sampoorna. All Rights Reserved.</p></footer>
-    </div>
-
-    <!-- Sidebars -->
-    <div id="cart-sidebar" class="sidebar closed fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg z-50 flex flex-col">
-        <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-xl font-bold">Your Cart</h2>
-            <button id="close-cart-btn" class="text-2xl">&times;</button>
-        </div>
-        <div id="cart-items-container" class="flex-grow p-4 overflow-y-auto"></div>
-        <div class="p-4 border-t bg-gray-50">
-            <div class="flex justify-between font-bold text-lg mb-4">
-                <span>Total:</span>
-                <span id="cart-total">₹0</span>
+        </section>
+        
+        <!-- Customer Testimonials Section -->
+        <section class="section hidden">
+            <h2 class="section-title" data-lang-en="What Our Customers Say" data-lang-hi="हमारे ग्राहक क्या कहते हैं">What Our Customers Say</h2>
+            <div class="testimonial-container">
+                 <div class="testimonial-slider">
+                    <div class="testimonial-slide active">
+                        <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote" data-lang-en="&quot;The groundnut oil is incredibly pure and aromatic. It has completely changed the taste of my cooking for the better!&quot;" data-lang-hi="&quot;मूंगफली का तेल अविश्वसनीय रूप से शुद्ध और सुगंधित है। इसने मेरे खाना पकाने का स्वाद पूरी तरह से बदल दिया है!&quot;">"The groundnut oil is incredibly pure and aromatic. It has completely changed the taste of my cooking for the better!"</p>
+                        <p class="author">- Anjali P.</p>
+                    </div>
+                    <div class="testimonial-slide">
+                         <div class="stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote" data-lang-en="&quot;Finally, a brand that delivers what it promises. The coconut oil feels so natural. Highly recommended for anyone who values quality.&quot;" data-lang-hi="&quot;अंत में, एक ऐसा ब्रांड जो अपने वादे पूरे करता है। नारियल का तेल बहुत प्राकृतिक लगता है। गुणवत्ता को महत्व देने वाले किसी भी व्यक्ति के लिए अत्यधिक अनुशंसित है।&quot;">"Finally, a brand that delivers what it promises. The coconut oil feels so natural. Highly recommended for anyone who values quality."</p>
+                        <p class="author">- Rohan K.</p>
+                    </div>
+                    <div class="testimonial-slide">
+                         <div class="stars">
+                           <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="quote" data-lang-en="&quot;Excellent customer service and even better products. The A2 ghee is a must-try. You can taste the purity in every bite.&quot;" data-lang-hi="&quot;उत्कृष्ट ग्राहक सेवा और उससे भी बेहतर उत्पाद। A2 घी ज़रूर आज़माना चाहिए। आप हर निवाले में शुद्धता का स्वाद ले सकते हैं।&quot;">"Excellent customer service and even better products. The A2 ghee is a must-try. You can taste the purity in every bite."</p>
+                        <p class="author">- Sunita M.</p>
+                    </div>
+                </div>
+                <a class="testimonial-nav prev">&#10094;</a>
+                <a class="testimonial-nav next">&#10095;</a>
+                <div class="google-reviews-link">
+                     <a href="https://www.google.com/maps/place/GURU+Sampoorna+Taaja+Cold+Wood+Pressed+Oil+And+Natural+Products/@22.7196062,75.9068863,17z/data=!4m8!3m7!1s0x3962e33e860c9193:0x36450e1bff4e27b7!8m2!3d22.7196062!4d75.9094612!9m1!1b1!16s%2Fg%2F11f5tv28d_?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="review-btn" data-lang-en="Read All 1000+ Reviews" data-lang-hi="सभी 1000+ समीक्षाएं पढ़ें" onclick="gtag('event', 'read_reviews_click', { 'event_category': 'engagement', 'event_label': 'All Reviews' });">Read All 1000+ Reviews</a>
+                </div>
             </div>
-            <button id="checkout-btn" class="w-full btn-primary py-3 rounded-lg font-semibold" onclick="gtag('event', 'checkout_click', { 'event_category': 'ecommerce', 'event_label': 'Checkout Button' });">Checkout</button>
+        </section>
+
+        <!-- Journey of Purity Section -->
+        <section class="section hidden">
+            <h2 class="section-title" data-lang-en="Our Journey of Purity" data-lang-hi="हमारी शुद्धता की यात्रा">Our Journey of Purity</h2>
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="journey-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div class="journey-content">
+                        <h3 data-lang-en="1. Premium Selection" data-lang-hi="१. प्रीमियम चयन">1. Premium Selection</h3>
+                        <p data-lang-en="Only the finest, high-quality seeds are selected to ensure the best starting point for our oils." data-lang-hi="हमारे तेलों के लिए सर्वोत्तम शुरुआती बिंदु सुनिश्चित करने के लिए केवल बेहतरीन, उच्च-गुणवत्ता वाले बीज ही चुने जाते हैं।">Only the finest, high-quality seeds are selected to ensure the best starting point for our oils.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="journey-content">
+                        <h3 data-lang-en="2. Gentle Extraction" data-lang-hi="२. सौम्य निष्कर्षण">2. Gentle Extraction</h3>
+                        <p data-lang-en="The selected seeds are gently pressed in a traditional wooden Ghani, a slow process that preserves all the natural nutrients." data-lang-hi="चुने हुए बीजों को पारंपरिक लकड़ी की घानी में धीरे-धीरे दबाया जाता है, यह एक धीमी प्रक्रिया है जो सभी प्राकृतिक पोषक तत्वों को संरक्षित रखती है।">The selected seeds are gently pressed in a traditional wooden Ghani, a slow process that preserves all the natural nutrients.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon"><i class="fa-solid fa-bottle-droplet"></i></div>
+                    <div class="journey-content">
+                        <h3 data-lang-en="3. Hygienic Bottling" data-lang-hi="३. स्वच्छ बॉटलिंग">3. Hygienic Bottling</h3>
+                        <p data-lang-en="The pure oil is hygienically packed into bottles, sealing in the freshness and goodness for you to enjoy." data-lang-hi="शुद्ध तेल को स्वच्छता से बोतलों में पैक किया जाता है, जिससे आपके आनंद के लिए ताजगी और अच्छाई बनी रहती है।">The pure oil is hygienically packed into bottles, sealing in the freshness and goodness for you to enjoy.</p>
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="journey-content">
+                        <h3 data-lang-en="4. Delivery to Customer" data-lang-hi="४. ग्राहक तक डिलीवरी">4. Delivery to Customer</h3>
+                        <p data-lang-en="Our freshly prepared products are carefully packaged and swiftly delivered right to your doorstep." data-lang-hi="हमारे ताज़े तैयार उत्पादों को सावधानीपूर्वक पैक किया जाता है और सीधे आपके दरवाजे पर तेजी से पहुंचाया जाता है।">Our freshly prepared products are carefully packaged and swiftly delivered right to your doorstep.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Bestsellers Section -->
+        <section class="section hidden">
+            <h2 class="section-title" data-lang-en="Our Bestsellers" data-lang-hi="हमारे बेस्टसेलर">Our Bestsellers</h2>
+            <div class="product-slider-container">
+                <div class="product-slider">
+                    <div class="product-card">
+                        <img loading="lazy" src="https://i.ibb.co/Cx7DVMV/Peanut-f-2.jpg" alt="Groundnut Oil">
+                        <div class="product-card-content">
+                            <h3 data-lang-en="Groundnut Oil" data-lang-hi="मूंगफली का तेल">Groundnut Oil</h3>
+                            <p data-lang-en="Rich, nutty, and perfect for everyday cooking and deep frying." data-lang-hi="अमीर, पौष्टिक, और रोजमर्रा के खाना पकाने और डीप फ्राई के लिए एकदम सही।">Rich, nutty, and perfect for everyday cooking and deep frying.</p>
+                            <a href="https://gurusampoorna1.netlify.app/" target="_blank" class="order-btn" data-lang-en="Order Now" data-lang-hi="अभी ऑर्डर करें">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img loading="lazy" src="https://i.ibb.co/MxtMNpj7/6246933471817746915.jpg" alt="A2 Ghee">
+                        <div class="product-card-content">
+                            <h3 data-lang-en="A2 Gir Cow Ghee" data-lang-hi="ए२ गिर गाय का घी">A2 Gir Cow Ghee</h3>
+                            <p data-lang-en="Pure, aromatic, and made from the milk of Gir cows using traditional methods." data-lang-hi="शुद्ध, सुगंधित, और पारंपरिक तरीकों का उपयोग करके गिर गायों के दूध से बना है।">Pure, aromatic, and made from the milk of Gir cows using traditional methods.</p>
+                             <a href="https://gurusampoorna1.netlify.app/" target="_blank" class="order-btn" data-lang-en="Order Now" data-lang-hi="अभी ऑर्डर करें">Order Now</a>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img loading="lazy" src="https://i.ibb.co/PG37QV3p/Coconut-Oil-F-1.jpg" alt="Coconut Oil">
+                        <div class="product-card-content">
+                            <h3 data-lang-en="Coconut Oil" data-lang-hi="नारियल का तेल">Coconut Oil</h3>
+                            <p data-lang-en="Versatile and healthy, ideal for cooking, skin, and hair care." data-lang-hi="बहुमुखी और स्वस्थ, खाना पकाने, त्वचा और बालों की देखभाल के लिए आदर्श।">Versatile and healthy, ideal for cooking, skin, and hair care.</p>
+                             <a href="https://gurusampoorna1.netlify.app/" target="_blank" class="order-btn" data-lang-en="Order Now" data-lang-hi="अभी ऑर्डर करें">Order Now</a>
+                        </div>
+                    </div>
+                     <div class="product-card">
+                        <img loading="lazy" src="https://i.ibb.co/dFbhrWy/6233080595970377292.jpg" alt="Mustard Oil">
+                        <div class="product-card-content">
+                            <h3 data-lang-en="Mustard Oil" data-lang-hi="सरसों का तेल">Mustard Oil</h3>
+                            <p data-lang-en="Strong, pungent, and a staple in traditional Indian cuisine for its flavor and benefits." data-lang-hi="मजबूत, तीखा, और अपने स्वाद और लाभों के लिए पारंपरिक भारतीय व्यंजनों में एक प्रधान।">Strong, pungent, and a staple in traditional Indian cuisine for its flavor and benefits.</p>
+                             <a href="https://gurusampoorna1.netlify.app/" target="_blank" class="order-btn" data-lang-en="Order Now" data-lang-hi="अभी ऑर्डर करें">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Availability Section -->
+        <section class="section hidden">
+             <div class="availability-section">
+                <h4 class="availability-title" data-lang-en="Also Available On" data-lang-hi="यहां भी उपलब्ध है">Also Available On</h4>
+                <div class="logos-container">
+                    <a href="https://www.amazon.in/s?k=GURU+SAMPOORNA+TAAJA&ref=bl_dp_s_web_0" target="_blank" class="platform-logo" title="Find us on Amazon" onclick="gtag('event', 'platform_click', { 'platform_name': 'Amazon' });">
+                       <img loading="lazy" src="https://i.ibb.co/PsWXsZKr/amazon-logo-on-transparent-background-free-vector.jpg" alt="Amazon Logo">
+                    </a>
+                    <a href="https://blinkit.com/prn/guru-sampoorna-taaja-wood-pressed-groundnut-oil/prid/686035?srsltid=AfmBOoqucYZ_57fUc-GetTVz4NiFqolCq8EQxCCiGXHkil1CnrHv0pXY" target="_blank" class="platform-logo" title="Find us on Blinkit" onclick="gtag('event', 'platform_click', { 'platform_name': 'Blinkit' });">
+                       <img loading="lazy" src="https://i.ibb.co/Vc7S9XYP/Blinkit-yellow-rounded-svg.png" alt="Blinkit Logo">
+                    </a>
+                </div>
+                <div class="delivery-info">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <span data-lang-en="Home delivery available across India" data-lang-hi="पूरे भारत में होम डिलीवरी उपलब्ध है">Home delivery available across India</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- AI Assistant Floating Button -->
+    <button id="ai-assistant-btn" title="Ask a Question">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    <!-- AI Assistant Chat Modal -->
+    <div id="ai-chat-modal">
+        <div class="ai-chat-header">
+            <h3 data-lang-en="AI Assistant" data-lang-hi="एआई सहायक">AI Assistant</h3>
+            <button id="ai-lang-toggle" class="ai-lang-toggle-btn">हिन्दी</button>
+            <button class="close-chat">&times;</button>
+        </div>
+        <div class="ai-chat-messages">
+            <!-- Messages will be added here by JS -->
+        </div>
+        <div class="ai-chat-input-area">
+            <input type="text" id="ai-chat-input" 
+                   data-lang-en-placeholder="Ask a question..." 
+                   data-lang-hi-placeholder="एक सवाल पूछें..." 
+                   placeholder="Ask a question...">
+            <button id="ai-chat-send"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
-    <div id="wishlist-sidebar" class="sidebar closed fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg z-50 flex flex-col">
-        <div class="flex justify-between items-center p-4 border-b">
-            <h2 class="text-xl font-bold">Your Wishlist</h2>
-            <button id="close-wishlist-btn" class="text-2xl">&times;</button>
+
+
+    <!-- Visitors Modal -->
+    <div id="visitors-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img loading="lazy" src="https://i.ibb.co/LhvF9b4X/6230911770629884358.jpg" alt="Visitor Shri Pushyamitra Bhargav Ji">
+                        <p class="caption" data-lang-en="Shri Pushyamitra Bhargav Ji" data-lang-hi="श्री पुष्यमित्र भार्गव जी">Shri Pushyamitra Bhargav Ji</p>
+                    </div>
+                    <div class="slide">
+                        <img loading="lazy" src="https://i.ibb.co/qYNjZb8v/6230911770629884354.jpg" alt="Visitor Shri Kailash Ji Vijayvargiya">
+                        <p class="caption" data-lang-en="Shri Kailash Ji Vijayvargiya" data-lang-hi="श्री कैलाश जी विजयवर्गीय">Shri Kailash Ji Vijayvargiya</p>
+                    </div>
+                    <div class="slide">
+                        <img loading="lazy" src="https://i.ibb.co/Y4NxrY7j/6230911770629884359.jpg" alt="Visitor Shri Satyanarayana Maurya Ji">
+                        <p class="caption" data-lang-en="Shri Satyanarayana Maurya Ji" data-lang-hi="श्री सत्यनारायण मौर्य जी">Shri Satyanarayana Maurya Ji</p>
+                    </div>
+                    <div class="slide">
+                        <img loading="lazy" src="https://i.ibb.co/4n1vgcnT/6230911770629884357.jpg" alt="Visitor Shri Mahendra Singh Solanki Ji">
+                        <p class="caption" data-lang-en="Shri Mahendra Singh Solanki Ji" data-lang-hi="श्री महेंद्र सिंह सोलंकी जी">Shri Mahendra Singh Solanki Ji</p>
+                    </div>
+                    <div class="slide">
+                        <img loading="lazy" src="https://i.ibb.co/rRN9xnZf/6230911770629884355.jpg" alt="Visitor Swami Aishwaryanand Ji">
+                        <p class="caption" data-lang-en="Swami Aishwaryanand Ji" data-lang-hi="स्वामी ऐश्वर्यानंद जी">Swami Aishwaryanand Ji</p>
+                    </div>
+                </div>
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
         </div>
-        <div id="wishlist-items-container" class="flex-grow p-4 overflow-y-auto"></div>
     </div>
-    <div id="sidebar-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40"></div>
 
-    <!-- "Know More" Modal -->
-    <div id="know-more-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0">
-        <div class="modal-content bg-white rounded-lg shadow-xl p-6 w-full max-w-md text-center transform scale-95">
-            <h3 id="modal-title" class="text-2xl font-brand font-bold text-gray-800 mb-4"></h3>
-            <p id="modal-description" class="text-gray-600 mb-6"></p>
-            <button id="close-modal-btn" class="btn-primary px-6 py-2 rounded-lg font-semibold">Close</button>
+    <!-- About Us Modal -->
+    <div id="about-us-modal" class="modal">
+        <div class="modal-content about-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="section-title" data-lang-en="Our Team" data-lang-hi="हमारी टीम">Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <div class="team-photo founder">
+                        <img loading="lazy" src="https://i.ibb.co/HpRj80K1/6230911770629884368.jpg" alt="Madhav Patidar - Founder">
+                    </div>
+                    <p class="team-name">Madhav Patidar</p>
+                    <p class="team-title" data-lang-en="Founder" data-lang-hi="संस्थापक">Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                        <img loading="lazy" src="https://i.ibb.co/DfZbNN3K/6230911770629884369.jpg" alt="Devvrat Patidar - Co-Founder">
+                    </div>
+                    <p class="team-name">Devvrat Patidar</p>
+                    <p class="team-title" data-lang-en="Co-Founder" data-lang-hi="सह-संस्थापक">Co-Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">
+                         <img loading="lazy" src="https://i.ibb.co/Pv4dgHSR/6230911770629884367.jpg" alt="Govind Patidar - Co-Founder">
+                    </div>
+                    <p class="team-name">Govind Patidar</p>
+                    <p class="team-title" data-lang-en="Co-Founder" data-lang-hi="सह-संस्थापक">Co-Founder</p>
+                </div>
+            </div>
+            <p class="about-paragraph" data-lang-en="Guru Sampoorna was founded in 2017 by visionary entrepreneur Madhav Patidar, inspired by the teachings and ideals of Shri Rajiv Ji Dixit. The company was established with the mission of offering high-quality, swadeshi chemical products across India, supporting the growth of the Swadeshi movement and empowering local farmers.<br><br>Madhav’s commitment to the movement is reflected in every aspect of the business, aiming to deliver products that are both beneficial for consumers and the country. Co-founder Devvrat plays a crucial role in overseeing the company's quality control measures, ensuring the highest standards of hygiene and consistency throughout the production process. Meanwhile, co-founder Govind is dedicated to providing an exceptional customer experience, addressing queries and ensuring that Guru Sampoorna's products are accessible to a wide audience.<br><br>Together, the team is driving Guru Sampoorna toward a future where quality, sustainability, and community development go hand in hand." data-lang-hi="गुरु सम्पूर्ण की स्थापना 2017 में दूरदर्शी उद्यमी माधव पाटीदार द्वारा श्री राजीव जी दीक्षित की शिक्षाओं और आदर्शों से प्रेरित होकर की गई थी। कंपनी की स्थापना पूरे भारत में उच्च-गुणवत्ता, स्वदेशी रासायनिक उत्पादों की पेशकश करने, स्वदेशी आंदोलन के विकास का समर्थन करने और स्थानीय किसानों को सशक्त बनाने के मिशन के साथ की गई थी।<br><br>आंदोलन के প্রতি माधव की प्रतिबद्धता व्यवसाय के हर पहलू में परिलक्षित होती है, जिसका उद्देश्य ऐसे उत्पाद वितरित करना है जो उपभोक्ताओं और देश दोनों के लिए फायदेमंद हों। सह-संस्थापक देवव्रत कंपनी के गुणवत्ता नियंत्रण उपायों की देखरेख में एक महत्वपूर्ण भूमिका निभाते हैं, जो उत्पादन प्रक्रिया के दौरान स्वच्छता और स्थिरता के उच्चतम मानकों को सुनिश्चित करते हैं। इस बीच, सह-संस्थापक गोविंद एक असाधारण ग्राहक अनुभव प्रदान करने, प्रश्नों को संबोधित करने और यह सुनिश्चित करने के लिए समर्पित हैं कि गुरु सम्पूर्ण के उत्पाद व्यापक दर्शकों के लिए सुलभ हों।<br><br>साथ में, टीम गुरु सम्पूर्ण को एक ऐसे भविष्य की ओर ले जा रही है जहाँ गुणवत्ता, स्थिरता और सामुदायिक विकास साथ-साथ चलते हैं।">Guru Sampoorna was founded in 2017 by visionary entrepreneur Madhav Patidar, inspired by the teachings and ideals of Shri Rajiv Ji Dixit. The company was established with the mission of offering high-quality, swadeshi chemical products across India, supporting the growth of the Swadeshi movement and empowering local farmers.<br><br>Madhav’s commitment to the movement is reflected in every aspect of the business, aiming to deliver products that are both beneficial for consumers and the country. Co-founder Devvrat plays a crucial role in overseeing the company's quality control measures, ensuring the highest standards of hygiene and consistency throughout the production process. Meanwhile, co-founder Govind is dedicated to providing an exceptional customer experience, addressing queries and ensuring that Guru Sampoorna's products are accessible to a wide audience.<br><br>Together, the team is driving Guru Sampoorna toward a future where quality, sustainability, and community development go hand in hand.</p>
         </div>
     </div>
 
 
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/GURUsampoornataajaindore/" target="_blank" title="Facebook" onclick="gtag('event', 'social_icon_click', { 'social_media': 'Facebook' });"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/gurusampoornataaja/?hl=en" target="_blank" title="Instagram" onclick="gtag('event', 'social_icon_click', { 'social_media': 'Instagram' });"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@gurusampoornataajaindore" target="_blank" title="YouTube" onclick="gtag('event', 'social_icon_click', { 'social_media': 'YouTube' });"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://x.com/gurustaaja" target="_blank" title="Twitter" onclick="gtag('event', 'social_icon_click', { 'social_media': 'Twitter' });"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <div class="copyright" data-lang-en="© 2017-2025 Guru Sampoorna | Pure. Natural. Trusted." data-lang-hi="© 2017-2025 गुरु सम्पूर्ण | शुद्ध। प्राकृतिक। विश्वसनीय।">
+            © 2017-2025 Guru Sampoorna | Pure. Natural. Trusted.
+        </div>
+    </footer>
+    
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const googleSheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTOBYoHgJGxEOiVx9GvYcXTvzsRT-1kK-P3254UKV-N3BIHWAVT4-6kdVtCi4QJeo4wwsInNY-6Wp3D/pub?output=csv';
-        let cart = [], wishlist = [], allProducts = [];
-        const CART_KEY = 'guruSampoornaCart', WISHLIST_KEY = 'guruSampoornaWishlist';
-        
-        const cartSidebar = document.getElementById('cart-sidebar'),
-              wishlistSidebar = document.getElementById('wishlist-sidebar'),
-              sidebarOverlay = document.getElementById('sidebar-overlay'),
-              searchInput = document.getElementById('search-input'),
-              searchResultsContainer = document.getElementById('search-results'),
-              checkoutBtn = document.getElementById('checkout-btn'),
-              openCartBtn = document.getElementById('open-cart-btn'),
-              closeCartBtn = document.getElementById('close-cart-btn'),
-              openWishlistBtn = document.getElementById('open-wishlist-btn'),
-              closeWishlistBtn = document.getElementById('close-wishlist-btn'),
-              cartItemsContainer = document.getElementById('cart-items-container'),
-              wishlistItemsContainer = document.getElementById('wishlist-items-container'),
-              cartTotalEl = document.getElementById('cart-total'),
-              cartCountBadge = document.getElementById('cart-count-badge'),
-              wishlistCountBadge = document.getElementById('wishlist-count-badge'),
-              productSectionsContainer = document.getElementById('product-sections-container'),
-              categoryButtonsContainer = document.getElementById('category-buttons-container'),
-              knowMoreModal = document.getElementById('know-more-modal'),
-              modalTitle = document.getElementById('modal-title'),
-              modalDescription = document.getElementById('modal-description'),
-              closeModalBtn = document.getElementById('close-modal-btn');
-        
-        async function init() {
-            loadStateFromLocalStorage();
-            await fetchAndRenderProducts();
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Language Toggle Logic ---
+            const langToggleBtn = document.getElementById('lang-toggle');
+            const translatableElements = document.querySelectorAll('[data-lang-en]');
             
-            setupEventListeners();
-            updateAllCartUI();
-            updateAllWishlistUI();
-        }
+            let currentLanguage = 'en';
 
-        function parseCSV(text) {
-            const rows = text.split(/\r?\n/);
-            const headers = (rows.shift() || '').split(',');
-            const products = rows.map(row => {
-                if (!row) return null;
-                const values = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g) || [];
-                if (values.length === 0) return null;
-                let product = {};
-                headers.forEach((header, i) => {
-                    let value = values[i] || '';
-                    if (value.startsWith('"') && value.endsWith('"')) value = value.slice(1, -1).replace(/""/g, '"');
-                    product[header.trim()] = value;
+            langToggleBtn.addEventListener('click', () => {
+                gtag('event', 'language_toggle_click', {
+                    event_category: 'engagement',
+                    event_label: 'Hindi ↔ English Toggle'
                 });
+                if (currentLanguage === 'en') {
+                    currentLanguage = 'hi';
+                    langToggleBtn.textContent = 'English';
+                } else {
+                    currentLanguage = 'en';
+                    langToggleBtn.textContent = 'हिन्दी';
+                }
                 
-                product.variants = (product.variants || '').split(':').map(v => ({
-                    size: (v.split('|')[0] || '').trim(), 
-                    price: parseFloat(v.split('|')[1]) || 0,
-                    images: []
-                })).filter(v => v.size && v.price > 0);
-                
-                product.galleryImages = [
-                    product.galleryImage1, product.galleryImage2, product.galleryImage3,
-                    product.galleryImage4, product.galleryImage5, product.galleryImage6
-                ].filter(url => url && url.trim() !== '');
+                translatableElements.forEach(el => {
+                    const text = el.getAttribute(`data-lang-${currentLanguage}`);
+                    el.innerHTML = text; // Use innerHTML to support tags like <strong>
+                });
+            });
 
-                for(let i = 1; i <= 13; i++) {
-                    const field = `VariantImage${i}`;
-                    if (product[field] && product[field].includes('|')) {
-                        const [size, url] = product[field].split('|').map(s => s.trim());
-                        const targetVariant = product.variants.find(v => v.size === size);
-                        if(targetVariant) {
-                            targetVariant.images.push(url);
+            // --- Scroll Animation ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+
+                        // Video view tracking
+                        if (entry.target.classList.contains('video-section') && !entry.target.dataset.gaEventSent) {
+                            gtag('event', 'video_view', {
+                                'event_category': 'engagement',
+                                'event_label': 'Process Video View'
+                            });
+                            entry.target.dataset.gaEventSent = 'true';
                         }
                     }
-                }
-
-                product.order = parseInt(product.order, 10) || 99;
-                return product;
-            }).filter(p => p && p.id && p.variants.length > 0);
-
-            products.sort((a, b) => a.order - b.order);
-            return products;
-        }
-
-
-        async function fetchAndRenderProducts() {
-            if (!googleSheetUrl || googleSheetUrl.includes('PASTE_YOUR_LINK')) {
-                productSectionsContainer.innerHTML = `<p class="text-center text-red-600">Please provide a valid Google Sheet link.</p>`;
-                return;
-            }
-            try {
-                const response = await fetch(`${googleSheetUrl}&t=${new Date().getTime()}`);
-                if (!response.ok) throw new Error(`Network error: ${response.statusText}`);
-                const csvText = await response.text();
-                allProducts = parseCSV(csvText);
-                if (allProducts.length === 0) {
-                    productSectionsContainer.innerHTML = `<p class="text-center text-gray-600">No products found. Check your Google Sheet.</p>`;
-                    return;
-                }
-                const categories = allProducts.reduce((acc, product) => {
-                    const categoryId = product.categoryId || product.categoryName.replace(/\s+/g, '-').toLowerCase();
-                    if (!acc[categoryId]) {
-                         acc[categoryId] = { name: product.categoryName, products: [] };
-                    }
-                    product.categoryId = categoryId;
-                    acc[categoryId].products.push(product);
-                    return acc;
-                }, {});
-
-                renderCategories(categories);
-                renderProducts(categories);
-            } catch (error) {
-                console.error("Error fetching products:", error);
-                productSectionsContainer.innerHTML = `<p class="text-center text-red-600">Could not load products.</p>`;
-            }
-        }
-
-        function renderCategories(categories) {
-            categoryButtonsContainer.innerHTML = Object.keys(categories).map((catId, i) => `<button data-target="#${catId}" class="category-btn ${i === 0 ? 'active' : ''}" onclick="gtag('event', 'categories_click', { 'event_category': 'engagement', 'event_label': '${categories[catId].name}' });">${categories[catId].name}</button>`).join('');
-        }
-
-        function renderProducts(categories) {
-            productSectionsContainer.innerHTML = Object.keys(categories).map((catId, i) => `<section id="${catId}" class="product-section ${i > 0 ? 'hidden' : ''}"><div class="flex justify-center"><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl">${categories[catId].products.map(createProductCardHTML).join('')}</div></div></section>`).join('');
-            document.querySelectorAll('.product-card').forEach(updateCardWishlistStatus);
-        }
-
-        function createProductCardHTML(product) {
-            const defaultVariant = product.variants[0];
-            const mainGalleryImages = [product.imageUrl, ...product.galleryImages].filter(Boolean);
-            return `
-            <div class="product-card rounded-xl overflow-hidden flex flex-col" data-product-id="${product.id}" data-product-name="${product.name}" data-detailed-description="${product.detailedDescription || ''}" data-main-image="${product.imageUrl}">
-                <div class="product-image-container">
-                    ${buildGalleryHTML(mainGalleryImages)}
-                </div>
-                <div class="p-6 flex flex-col flex-grow text-center">
-                    <h3 class="text-xl font-brand font-bold text-gray-800">${product.name}</h3>
-                    <button class="know-more-btn text-sm text-blue-600 hover:underline mt-2">Know More</button>
-                    <div class="mt-4">
-                        <p class="text-sm font-semibold text-gray-600 mb-2">Select Size:</p>
-                        <div class="flex flex-wrap gap-2 justify-center">
-                            ${product.variants.map((v, i) => `<label class="variant-label cursor-pointer"><input type="radio" name="variant-${product.id}" class="sr-only" value="${v.price}" data-variant="${v.size}" ${i===0?'checked':''}><span class="block text-center border-2 border-gray-200 rounded-lg px-4 py-2 text-sm">${v.size}</span></label>`).join('')}
-                        </div>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between gap-4">
-                        <div class="flex items-center border border-gray-300 rounded-md">
-                            <button class="quantity-btn minus p-2 text-lg leading-none" data-action="decrease">-</button>
-                            <input type="number" class="quantity-input w-12 text-center border-none focus:ring-0" value="1" min="1">
-                            <button class="quantity-btn plus p-2 text-lg leading-none" data-action="increase">+</button>
-                        </div>
-                        <button class="wishlist-btn p-2 rounded-full hover:bg-red-100" onclick="gtag('event', 'wishlist_click', { 'event_category': 'engagement', 'event_label': 'Product Wishlist Icon', 'product_name': '${product.name}' });"><svg class="w-6 h-6 heart-icon" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 20.364l-7.682-7.682a4.5 4.5 0 010-6.364z"></path></svg></button>
-                    </div>
-                    <div class="mt-auto pt-4 relative">
-                        <p class="text-3xl font-bold text-amber-800 price">₹${defaultVariant.price}</p>
-                        <button class="add-to-cart-btn btn-primary w-full font-semibold py-2 px-5 rounded-lg shadow-sm mt-2" onclick="gtag('event', 'add_to_cart_click', { 'event_category': 'ecommerce', 'event_label': 'Add to Cart Button', 'product_name': '${product.name}' });">Add to Cart</button>
-                    </div>
-                </div>
-            </div>`;
-        }
-        
-        function buildGalleryHTML(images) {
-            if (!images || images.length === 0) return '';
-            let html = images.map((imgUrl, index) => `<img src="${imgUrl}" alt="Product Image" class="gallery-image ${index === 0 ? 'active' : ''}" data-index="${index}" data-img-src="${imgUrl}" onerror="this.style.display='none'">`).join('');
-            if (images.length > 1) {
-                html += `
-                <div class="gallery-nav">
-                    <button class="gallery-prev"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></button>
-                    <button class="gallery-next"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></button>
-                </div>
-                <div class="gallery-dots">${images.map((_, index) => `<div class="dot ${index === 0 ? 'active' : ''}" data-index="${index}"></div>`).join('')}</div>`;
-            }
-            return html;
-        }
-
-        function setupEventListeners() {
-            document.body.addEventListener('click', e => {
-                const target = e.target;
-                if (!target.closest('#search-component')) {
-                     searchResultsContainer.classList.add('hidden');
-                }
-                if (target.closest('.category-btn')) handleCategoryClick(target.closest('.category-btn'));
-                if (target.closest('.quantity-btn')) handleQuantityClick(target.closest('.quantity-btn'));
-                if (target.closest('.add-to-cart-btn')) handleAddToCart(target.closest('.add-to-cart-btn'));
-                if (target.closest('.wishlist-btn')) handleToggleWishlist(target.closest('.wishlist-btn'));
-                if (target.closest('.know-more-btn')) handleKnowMore(target.closest('.know-more-btn'));
-                if (target.closest('.gallery-prev')) handleGalleryNav(target.closest('.gallery-prev'), 'prev');
-                if (target.closest('.gallery-next')) handleGalleryNav(target.closest('.gallery-next'), 'next');
-                if (target.closest('.dot')) handleGalleryDot(target.closest('.dot'));
+                });
+            }, {
+                threshold: 0.1
             });
-            document.body.addEventListener('change', e => {
-                if (e.target.matches('input[name^="variant-"]')) handleVariantChange(e.target);
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach(el => observer.observe(el));
+
+
+            // --- Modal Gallery Logic ---
+            const visitorsCard = document.getElementById('visitors-card');
+            const visitorsModal = document.getElementById('visitors-modal');
+            const closeVisitorsModalBtn = visitorsModal.querySelector('.close-modal');
+            const prevBtn = visitorsModal.querySelector('.prev');
+            const nextBtn = visitorsModal.querySelector('.next');
+            const slider = visitorsModal.querySelector('.slider');
+            const slides = visitorsModal.querySelectorAll('.slide');
+
+            let slideIndex = 1;
+            let autoScrollInterval = null;
+
+            visitorsCard.addEventListener('click', (e) => {
+                e.preventDefault();
+                gtag('event', 'our_visitors_click', {
+                  event_category: 'engagement',
+                  event_label: 'Our Visitors'
+                });
+                visitorsModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; 
+                showSlides(slideIndex);
+                startAutoScroll();
             });
-            
-            searchInput.addEventListener('input', handleLiveSearch);
-            searchInput.addEventListener('keydown', e => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    handleSearchFilter();
-                    searchResultsContainer.classList.add('hidden');
-                    searchInput.blur();
-                }
-            });
-            const toggleSidebar = (sidebar) => {
-                const isOpen = sidebar.classList.contains('open');
-                document.querySelectorAll('.sidebar.open').forEach(s => s !== sidebar && s.classList.replace('open', 'closed'));
-                sidebar.classList.toggle('open', !isOpen);
-                sidebar.classList.toggle('closed', isOpen);
-                sidebarOverlay.classList.toggle('hidden', !document.querySelector('.sidebar.open'));
+
+            const closeVisitorsModal = () => {
+                visitorsModal.style.display = 'none';
+                document.body.style.overflow = 'auto'; 
+                stopAutoScroll();
             };
-            openCartBtn.addEventListener('click', () => toggleSidebar(cartSidebar));
-            closeCartBtn.addEventListener('click', () => toggleSidebar(cartSidebar));
-            openWishlistBtn.addEventListener('click', () => toggleSidebar(wishlistSidebar));
-            closeWishlistBtn.addEventListener('click', () => toggleSidebar(wishlistSidebar));
-            sidebarOverlay.addEventListener('click', () => document.querySelectorAll('.sidebar.open').forEach(toggleSidebar));
-            
-            cartItemsContainer.addEventListener('click', e => {
-                const qBtn = e.target.closest('.cart-quantity-btn'), rBtn = e.target.closest('.remove-from-cart-btn');
-                if (qBtn) {
-                    const { action, id, variant } = qBtn.dataset;
-                    const item = cart.find(i => i.id === id && i.variant === variant);
-                    if(item) updateCartQuantity(id, variant, item.quantity + (action === 'increase' ? 1 : -1));
-                }
-                if (rBtn) removeFromCart(rBtn.dataset.id, rBtn.dataset.variant);
-            });
-            cartItemsContainer.addEventListener('change', e => {
-                const qInput = e.target.closest('.cart-quantity-input');
-                if(qInput) updateCartQuantity(qInput.dataset.id, qInput.dataset.variant, parseInt(qInput.value) || 1);
-            });
-            
-            wishlistItemsContainer.addEventListener('click', e => {
-                const removeBtn = e.target.closest('.remove-from-wishlist-btn');
-                if (removeBtn) {
-                    const { id, variant } = removeBtn.dataset;
-                    removeFromWishlist(id, variant);
+
+            closeVisitorsModalBtn.addEventListener('click', closeVisitorsModal);
+            visitorsModal.addEventListener('click', (e) => {
+                if (e.target === visitorsModal) {
+                    closeVisitorsModal();
                 }
             });
 
-            checkoutBtn.addEventListener('click', () => {
-                if (cart.length === 0) return showToast("Your cart is empty!", 'error');
-                let msg = "I want to order:\n\n" + cart.map(i => `*${i.name}*\n - Size: ${i.variant}\n - Qty: ${i.quantity}\n - Price: ₹${(i.price * i.quantity).toFixed(2)}`).join('\n\n');
-                const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
-                msg += `\n\n*Total: ₹${total.toFixed(2)}*`;
-                window.open(`https://wa.me/916262120120?text=${encodeURIComponent(msg)}`, '_blank');
-            });
-            closeModalBtn.addEventListener('click', closeModal);
-            knowMoreModal.addEventListener('click', e => e.target === knowMoreModal && closeModal());
-        }
-        
-        function handleSearchFilter() {
-            const term = searchInput.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.dataset.productName.toLowerCase();
-                const isHiddenByCategory = card.closest('.product-section').classList.contains('hidden');
-                card.style.display = (name.includes(term) && !isHiddenByCategory) ? 'flex' : 'none';
-            });
-        }
-        
-        function handleLiveSearch(e) {
-            const term = e.target.value.toLowerCase();
-            if (term.length < 2) {
-                searchResultsContainer.classList.add('hidden');
-                return;
+            prevBtn.addEventListener('click', () => plusSlides(-1));
+            nextBtn.addEventListener('click', () => plusSlides(1));
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+                resetAutoScroll();
             }
-            const results = allProducts.filter(p => p.name.toLowerCase().includes(term));
-            searchResultsContainer.innerHTML = results.length ? results.map(p => `<div class="search-result-item block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer" data-product-id="${p.id}">${p.name}</div>`).join('') : '<span class="block px-4 py-2 text-sm text-gray-500">No results found</span>';
-            searchResultsContainer.classList.remove('hidden');
 
-             searchResultsContainer.querySelectorAll('.search-result-item').forEach(item => {
-                item.addEventListener('click', e => {
-                    e.preventDefault();
-                    const productId = item.dataset.productId;
-                    const product = allProducts.find(p => p.id === productId);
-                    if (!product) return;
 
-                    const categoryBtn = document.querySelector(`.category-btn[data-target="#${product.categoryId}"]`);
-                    if(categoryBtn && !categoryBtn.classList.contains('active')) {
-                        handleCategoryClick(categoryBtn);
+
+            function showSlides(n) {
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                slider.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+            }
+
+            function startAutoScroll() {
+                stopAutoScroll(); 
+                autoScrollInterval = setInterval(() => {
+                    plusSlides(1);
+                }, 4000); 
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            function resetAutoScroll() {
+                stopAutoScroll();
+                startAutoScroll();
+            }
+
+            // --- About Us Modal Logic ---
+            const aboutUsCard = document.getElementById('about-us-card');
+            const aboutModal = document.getElementById('about-us-modal');
+            const closeAboutModalBtn = aboutModal.querySelector('.close-modal');
+
+            aboutUsCard.addEventListener('click', (e) => {
+                e.preventDefault();
+                aboutModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+
+            const closeAboutModal = () => {
+                aboutModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+
+            closeAboutModalBtn.addEventListener('click', closeAboutModal);
+            aboutModal.addEventListener('click', (e) => {
+                if (e.target === aboutModal) {
+                    closeAboutModal();
+                }
+            });
+
+             // --- Testimonial Slider Logic ---
+            const testimonialSlider = document.querySelector('.testimonial-slider');
+            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+            const prevTestimonialBtn = document.querySelector('.testimonial-nav.prev');
+            const nextTestimonialBtn = document.querySelector('.testimonial-nav.next');
+            let currentTestimonialIndex = 0;
+            let testimonialInterval = null;
+
+            function showTestimonial(index) {
+                testimonialSlides.forEach((slide, i) => {
+                    slide.classList.remove('active');
+                });
+                testimonialSlides[index].classList.add('active');
+            }
+
+            function nextTestimonial() {
+                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
+                showTestimonial(currentTestimonialIndex);
+            }
+            
+            function prevTestimonial() {
+                 currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+                showTestimonial(currentTestimonialIndex);
+            }
+
+            function startTestimonialAutoScroll() {
+                stopTestimonialAutoScroll();
+                testimonialInterval = setInterval(nextTestimonial, 6000); // Change slide every 6 seconds
+            }
+
+            function stopTestimonialAutoScroll() {
+                clearInterval(testimonialInterval);
+            }
+
+            nextTestimonialBtn.addEventListener('click', () => {
+                nextTestimonial();
+                stopTestimonialAutoScroll();
+            });
+
+             prevTestimonialBtn.addEventListener('click', () => {
+                prevTestimonial();
+                stopTestimonialAutoScroll();
+            });
+
+            startTestimonialAutoScroll();
+
+
+            // --- AI Assistant Logic ---
+            const aiBtn = document.getElementById('ai-assistant-btn');
+            const aiModal = document.getElementById('ai-chat-modal');
+            const closeAiModalBtn = aiModal.querySelector('.close-chat');
+            const chatMessages = aiModal.querySelector('.ai-chat-messages');
+            const chatInput = document.getElementById('ai-chat-input');
+            const sendBtn = document.getElementById('ai-chat-send');
+            const aiLangToggleBtn = document.getElementById('ai-lang-toggle');
+            
+            let currentChatLanguage = 'en';
+
+            const translations = {
+                en: {
+                    greeting: "Hello! I'm your AI assistant. How can I help you with Guru Sampoorna today?",
+                    placeholder: "Ask a question...",
+                    price: "You can view our complete price list on our WhatsApp catalog. Click the button below to open it.<br><br><a href='https://wa.me/c/916262120120' target='_blank' class='chat-btn'>Open Price List</a>",
+                    address: "Our store is in Indore. Click the button for directions on Google Maps.<br><br><a href='https://maps.app.goo.gl/kmsHJMQamBAQQs3y8' target='_blank' class='chat-btn'>Get Directions</a>",
+                    contact: "You can chat with us directly on WhatsApp for any questions.<br><br><a href='https://wa.me/916262120120' target='_blank' class='chat-btn'>Chat on WhatsApp</a>",
+                    timing: "Our store is open from Monday to Saturday, 10 AM to 9 PM. We are closed on Sundays.",
+                    order: "You can place your order directly from our online catalog. Click the button below to start shopping!<br><br><a href='https://gurusampoorna1.netlify.app/' target='_blank' class='chat-btn'>Order Now</a>",
+                    delivery: "Yes, we deliver! For orders within Indore, we offer next-day delivery. If you order today, you'll get it tomorrow. For orders outside Indore, we deliver across India. The delivery charges depend on the product weight and your area's pincode.",
+                    peanut_oil: "Our wood-pressed Peanut Oil prices are: ₹300 for 1L, ₹1475 for 5L, and ₹4275 for 15L. You can also bring your own container for a refill!",
+                    almond_oil: "Our Almond Oil prices are: ₹280 for 100ml, ₹580 for 200ml, and ₹2600 for 1L.",
+                    castor_oil: "Our Castor Oil prices are: ₹80 for 100ml and ₹150 for 200ml.",
+                    coconut_oil: "Our Coconut Oil prices are: ₹180 for 200ml and ₹800 for 1L.",
+                    black_mustard_oil: "Our Black Mustard Oil prices are: ₹85 for 200ml, ₹350 for 1L, ₹1725 for 5L, and ₹5025 for 15L.",
+                    yellow_mustard_oil: "Our Yellow Mustard Oil prices are: ₹85 for 200ml, ₹350 for 1L, and ₹1725 for 5L.",
+                    white_sesame_oil: "Our White Sesame Oil prices are: ₹95 for 200ml, ₹450 for 1L, ₹2225 for 5L, and ₹7200 for 15L.",
+                    black_sesame_oil: "Our Black Sesame Oil prices are: ₹200 for 200ml and ₹900 for 1L.",
+                    flaxseed_oil: "Our Flaxseed Oil prices are: ₹120 for 200ml and ₹550 for 1L.",
+                    sunflower_oil: "Our Sunflower Oil prices are: ₹410 for 1L, ₹2025 for 5L, and ₹5925 for 15L.",
+                    jaggery: "Our Jaggery is available for ₹110 per kg.",
+                    khandsari: "Our Khandsari sugar is available for ₹50 for 400gm and ₹120 for 1kg.",
+                    ghee: "Our Desi Gir Cow Ghee (A2) is available for ₹1050 for 500ml and ₹2100 for 1L.",
+                    about: "Guru Sampoorna was founded in 2017 by Madhav Patidar. You can learn more about our story and our team by clicking the button below.<br><br><button onclick=\"document.getElementById('about-us-card').click(); document.getElementById('ai-chat-modal').style.display='none';\" class='chat-btn chat-btn-alt'>Meet the Team</button>",
+                    products: "We specialize in 100% pure, natural, wood-pressed edible oils and other natural products. Ask me about a specific product for its price!",
+                    hello: "Hello! How can I assist you today?",
+                    thanks: "You're welcome! Is there anything else I can help with?",
+                    default: "I'm sorry, I can't answer that. For detailed queries, please contact us directly.<br><br><a href='https://wa.me/916262120120' target='_blank' class='chat-btn'>Chat on WhatsApp</a>"
+                },
+                hi: {
+                    greeting: "नमस्ते! मैं आपका एआई सहायक हूं। मैं आज गुरु सम्पूर्ण के साथ आपकी कैसे मदद कर सकता हूं?",
+                    placeholder: "एक सवाल पूछें...",
+                    price: "आप हमारी पूरी मूल्य सूची हमारे व्हाट्सएप कैटलॉग पर देख सकते हैं। इसे खोलने के लिए नीचे दिए गए बटन पर क्लिक करें।<br><br><a href='https://wa.me/c/916262120120' target='_blank' class='chat-btn'>मूल्य सूची खोलें</a>",
+                    address: "हमारा स्टोर इंदौर में है। गूगल मैप्स पर दिशा-निर्देशों के लिए बटन पर क्लिक करें।<br><br><a href='https://maps.app.goo.gl/kmsHJMQamBAQQs3y8' target='_blank' class='chat-btn'>दिशा-निर्देश प्राप्त करें</a>",
+                    contact: "किसी भी प्रश्न के लिए आप सीधे व्हाट्सएप पर हमसे चैट कर सकते हैं।<br><br><a href='https://wa.me/916262120120' target='_blank' class='chat-btn'>व्हाट्सएप पर चैट करें</a>",
+                    timing: "हमारी दुकान सोमवार से शनिवार, सुबह 10 बजे से रात 9 बजे तक खुली रहती है। हम रविवार को बंद रहते हैं।",
+                    order: "आप सीधे हमारे ऑनलाइन कैटलॉग से अपना ऑर्डर दे सकते हैं। खरीदारी शुरू करने के लिए नीचे दिए गए बटन पर क्लिक करें!<br><br><a href='https://gurusampoorna1.netlify.app/' target='_blank' class='chat-btn'>अभी ऑर्डर करें</a>",
+                    delivery: "हाँ, हम डिलीवरी करते हैं! इंदौर के भीतर के ऑर्डर के लिए, हम अगले दिन डिलीवरी प्रदान करते हैं। यदि आप आज ऑर्डर करते हैं, तो आपको यह कल मिल जाएगा। इंदौर के बाहर के ऑर्डर के लिए, हम पूरे भारत में डिलीवरी करते हैं। डिलीवरी शुल्क उत्पाद के वजन और आपके क्षेत्र के पिनकोड पर निर्भर करता है।",
+                    peanut_oil: "हमारी लकड़ी-दबाई हुई मूंगफली तेल की कीमतें हैं: 1L के लिए ₹300, 5L के लिए ₹1475, और 15L के लिए ₹4275। आप रिफिल के लिए अपना कंटेनर भी ला सकते हैं!",
+                    almond_oil: "हमारे बादाम तेल की कीमतें हैं: 100ml के लिए ₹280, 200ml के लिए ₹580, और 1L के लिए ₹2600।",
+                    castor_oil: "हमारे अरंडी के तेल की कीमतें हैं: 100ml के लिए ₹80 और 200ml के लिए ₹150।",
+                    coconut_oil: "हमारे नारियल तेल की कीमतें हैं: 200ml के लिए ₹180 और 1L के लिए ₹800।",
+                    black_mustard_oil: "हमारी काली सरसों के तेल की कीमतें हैं: 200ml के लिए ₹85, 1L के लिए ₹350, 5L के लिए ₹1725, और 15L के लिए ₹5025।",
+                    yellow_mustard_oil: "हमारी पीली सरसों के तेल की कीमतें हैं: 200ml के लिए ₹85, 1L के लिए ₹350, और 5L के लिए ₹1725।",
+                    white_sesame_oil: "हमारे सफेद तिल के तेल की कीमतें हैं: 200ml के लिए ₹95, 1L के लिए ₹450, 5L के लिए ₹2225, और 15L के लिए ₹7200।",
+                    black_sesame_oil: "हमारे काले तिल के तेल की कीमतें हैं: 200ml के लिए ₹200 और 1L के लिए ₹900।",
+                    flaxseed_oil: "हमारे अलसी के तेल की कीमतें हैं: 200ml के लिए ₹120 और 1L के लिए ₹550।",
+                    sunflower_oil: "हमारे सूरजमुखी तेल की कीमतें हैं: 1L के लिए ₹410, 5L के लिए ₹2025, और 15L के लिए ₹5925।",
+                    jaggery: "हमारा गुड़ ₹110 प्रति किलो उपलब्ध है।",
+                    khandsari: "हमारी खांडसारी चीनी 400gm के लिए ₹50 और 1kg के लिए ₹120 में उपलब्ध है।",
+                    ghee: "हमारा देसी गिर गाय का घी (A2) 500ml के लिए ₹1050 और 1L के लिए ₹2100 में उपलब्ध है।",
+                    about: "गुरु सम्पूर्ण की स्थापना 2017 में माधव पाटीदार ने की थी। आप नीचे दिए गए बटन पर क्लिक करके हमारी कहानी और हमारी टीम के बारे में अधिक जान सकते हैं।<br><br><button onclick=\"document.getElementById('about-us-card').click(); document.getElementById('ai-chat-modal').style.display='none';\" class='chat-btn chat-btn-alt'>टीम से मिलें</button>",
+                    products: "हम 100% शुद्ध, प्राकृतिक, लकड़ी-दबाए हुए खाद्य तेलों और अन्य प्राकृतिक उत्पादों में विशेषज्ञ हैं। किसी विशिष्ट उत्पाद की कीमत के लिए मुझसे पूछें!",
+                    hello: "नमस्ते! मैं आज आपकी कैसे सहायता कर सकता हूं?",
+                    thanks: "आपका स्वागत है! क्या मैं किसी और चीज में मदद कर सकता हूं?",
+                    default: "मुझे खेद है, मैं इसका उत्तर नहीं दे सकता। विस्तृत प्रश्नों के लिए, कृपया सीधे हमसे संपर्क करें।<br><br><a href='https://wa.me/916262120120' target='_blank' class='chat-btn'>व्हाट्सएप पर चैट करें</a>"
+                }
+            };
+
+            const addMessage = (text, sender) => {
+                const messageEl = document.createElement('div');
+                messageEl.classList.add('chat-message', sender);
+                messageEl.innerHTML = text;
+                chatMessages.appendChild(messageEl);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            };
+            
+            aiLangToggleBtn.addEventListener('click', () => {
+                currentChatLanguage = currentChatLanguage === 'en' ? 'hi' : 'en';
+                aiLangToggleBtn.textContent = currentChatLanguage === 'en' ? 'हिन्दी' : 'English';
+                chatInput.placeholder = translations[currentChatLanguage].placeholder;
+                 // Clear chat and show new greeting
+                chatMessages.innerHTML = '';
+                addMessage(translations[currentChatLanguage].greeting, 'ai');
+            });
+
+            aiBtn.addEventListener('click', () => {
+                gtag('event', 'ai_chat_open', {
+                    event_category: 'engagement',
+                    event_label: 'AI Assistant Opened'
+                });
+                const isVisible = aiModal.style.display === 'flex';
+                if (isVisible) {
+                    aiModal.style.display = 'none';
+                } else {
+                    aiModal.style.display = 'flex';
+                    if (chatMessages.children.length === 0) {
+                        setTimeout(() => {
+                            addMessage(translations[currentChatLanguage].greeting, 'ai');
+                        }, 500);
                     }
+                }
+            });
 
-                    setTimeout(() => {
-                        const productCard = document.querySelector(`.product-card[data-product-id="${productId}"]`);
-                        if (productCard) {
-                             productCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                             productCard.style.transition = 'all 0.3s';
-                             productCard.style.boxShadow = '0 0 0 3px #FDD835';
-                             setTimeout(() => {
-                                 productCard.style.boxShadow = '';
-                             }, 2000);
-                        }
-                    }, 100);
-                    
-                    searchResultsContainer.classList.add('hidden');
-                    searchInput.value = '';
+            closeAiModalBtn.addEventListener('click', () => {
+                aiModal.style.display = 'none';
+            });
+
+            const getAIResponse = (userQuestion) => {
+                const q = userQuestion.toLowerCase();
+                const langResponses = translations[currentChatLanguage];
+                let response = langResponses.default;
+
+                // More specific product checks first
+                if (q.includes('peanut') || q.includes('groundnut') || q.includes('मूंगफली')) {
+                    response = langResponses.peanut_oil;
+                } else if (q.includes('almond') || q.includes('बादाम')) {
+                    response = langResponses.almond_oil;
+                } else if (q.includes('castor') || q.includes('अरंडी')) {
+                    response = langResponses.castor_oil;
+                } else if (q.includes('coconut') || q.includes('नारियल')) {
+                    response = langResponses.coconut_oil;
+                } else if (q.includes('black mustard') || q.includes('kali sarso') || q.includes('काली सरसों')) {
+                    response = langResponses.black_mustard_oil;
+                } else if (q.includes('yellow mustard') || q.includes('pili sarso') || q.includes('पीली सरसों')) {
+                    response = langResponses.yellow_mustard_oil;
+                } else if (q.includes('white sesame') || q.includes('safed til') || q.includes('सफेद तिल')) {
+                    response = langResponses.white_sesame_oil;
+                } else if (q.includes('black sesame') || q.includes('kala til') || q.includes('काला तिल')) {
+                    response = langResponses.black_sesame_oil;
+                } else if (q.includes('flaxseed') || q.includes('alsi') || q.includes('अलसी')) {
+                    response = langResponses.flaxseed_oil;
+                } else if (q.includes('sunflower') || q.includes('surajmukhi') || q.includes('सूरजमुखी')) {
+                    response = langResponses.sunflower_oil;
+                } else if (q.includes('jaggery') || q.includes('gud') || q.includes('गुड़')) {
+                    response = langResponses.jaggery;
+                } else if (q.includes('khandsari') || q.includes('खांडसारी')) {
+                    response = langResponses.khandsari;
+                } else if (q.includes('ghee') || q.includes('gir cow') || q.includes('a2') || q.includes('घी')) {
+                    response = langResponses.ghee;
+                } else if (q.includes('order') || q.includes('buy') || q.includes('how to order') || q.includes('ऑर्डर') || q.includes('कैसे खरीदें')) {
+                    response = langResponses.order;
+                } else if (q.includes('price') || q.includes('rate') || q.includes('catalog') || q.includes('मूल्य') || q.includes('दाम')) {
+                    response = langResponses.price;
+                } else if (q.includes('address') || q.includes('location') || q.includes('where are you') || q.includes('पता') || q.includes('जगह')) {
+                    response = langResponses.address;
+                } else if (q.includes('contact') || q.includes('number') || q.includes('phone') || q.includes('संपर्क') || q.includes('नंबर')) {
+                    response = langResponses.contact;
+                } else if (q.includes('timing') || q.includes('open') || q.includes('hours') || q.includes('close') || q.includes('sunday') || q.includes('समय') || q.includes('खुलने') || q.includes('रविवार') || q.includes('बंद')) {
+                    response = langResponses.timing;
+                } else if (q.includes('about') || q.includes('who are you') || q.includes('founder') || q.includes('बारे में') || q.includes('कौन हो')) {
+                    response = langResponses.about;
+                } else if (q.includes('oil') || q.includes('products') || q.includes('what do you sell') || q.includes('तेल') || q.includes('उत्पाद')) {
+                    response = langResponses.products;
+                } else if (q.includes('delivery') || q.includes('ship') || q.includes('outside indore') || q.includes('pincode') || q.includes('डिलीवरी')) {
+                    response = langResponses.delivery;
+                } else if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('नमस्ते') || q.includes('हाय')) {
+                    response = langResponses.hello;
+                } else if (q.includes('thank') || q.includes('धन्यवाद')) {
+                    response = langResponses.thanks;
+                }
+                
+                setTimeout(() => addMessage(response, 'ai'), 1000);
+            };
+
+            const handleSend = () => {
+                const userText = chatInput.value.trim();
+                if (userText) {
+                    addMessage(userText, 'user');
+                    chatInput.value = '';
+                    getAIResponse(userText);
+                }
+            };
+            
+            sendBtn.addEventListener('click', handleSend);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSend();
+                }
+            });
+
+            // --- GA4 Event Tracking for Order Now Button ---
+            const orderBtn = document.getElementById('order-now-btn');
+            if (orderBtn) {
+                orderBtn.addEventListener('click', () => {
+                    gtag('event', 'order_now_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'Order Now Button'
+                    });
+                    console.log('GA4 Event Sent: order_now_click');
+                });
+            }
+
+            // --- GA4 Event Tracking for Bestseller Order Now Buttons ---
+            const bestsellerOrderBtns = document.querySelectorAll('.product-card .order-btn');
+            bestsellerOrderBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const productCard = btn.closest('.product-card');
+                    const productName = productCard.querySelector('h3').getAttribute('data-lang-en');
+                    gtag('event', 'order_now_click', {
+                        'event_category': 'engagement',
+                        'event_label': `Bestseller - ${productName}`
+                    });
+                    console.log(`GA4 Event Sent: order_now_click for ${productName}`);
                 });
             });
-        }
-
-        function handleCategoryClick(btn) {
-            document.querySelectorAll('.category-btn.active').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const targetId = btn.dataset.target;
-            document.querySelectorAll('.product-section').forEach(s => {
-                s.classList.toggle('hidden', `#${s.id}` !== targetId);
-            });
-            searchInput.value = '';
-            handleSearchFilter();
-
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                setTimeout(() => {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra margin
-        
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }, 100);
-            }
-        }
-        
-        function handleQuantityClick(btn) {
-            const input = btn.closest('div').querySelector('.quantity-input');
-            let val = parseInt(input.value);
-            input.value = btn.dataset.action === 'increase' ? val + 1 : Math.max(1, val - 1);
-        }
-        
-        function handleVariantChange(input) {
-            const card = input.closest('.product-card');
-            card.querySelector('.price').textContent = `₹${input.value}`;
-            updateCardWishlistStatus(card);
-
-            const productId = card.dataset.productId;
-            const product = allProducts.find(p => p.id === productId);
-            if (!product) return;
-
-            const variantSize = input.dataset.variant;
-            const selectedVariant = product.variants.find(v => v.size === variantSize);
-            
-            let imagesToShow = [product.imageUrl, ...product.galleryImages].filter(Boolean);
-            if (selectedVariant && selectedVariant.images.length > 0) {
-                imagesToShow = selectedVariant.images;
-            }
-
-            const imageContainer = card.querySelector('.product-image-container');
-            imageContainer.innerHTML = buildGalleryHTML(imagesToShow);
-        }
-
-        function handleAddToCart(btn) {
-            const card = btn.closest('.product-card');
-            const v = card.querySelector('input[type="radio"]:checked');
-            const imageElement = card.querySelector('.gallery-image.active');
-            let image = card.dataset.mainImage || 'https://placehold.co/100x100/FFF9C4/3E2723?text=No+Image';
-            if (imageElement) {
-                image = imageElement.src;
-            }
-            const item = { id: card.dataset.productId, name: card.dataset.productName, image: image, variant: v.dataset.variant, price: parseFloat(v.value), quantity: parseInt(card.querySelector('.quantity-input').value) };
-            addToCart(item);
-            btn.classList.add('added');
-            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block -mt-1 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Added!`;
-            setTimeout(() => { btn.classList.remove('added'); btn.textContent = 'Add to Cart'; }, 1500);
-            const pop = document.createElement('div');
-            pop.className = 'price-popup';
-            pop.textContent = `+ ₹${(item.price * item.quantity).toFixed(2)}`;
-            btn.parentElement.appendChild(pop);
-            setTimeout(() => pop.remove(), 1500);
-        }
-
-        function handleToggleWishlist(btn) {
-            const card = btn.closest('.product-card');
-            const v = card.querySelector('input[type="radio"]:checked');
-            const imageElement = card.querySelector('.gallery-image.active');
-            let image = card.dataset.mainImage || 'https://placehold.co/100x100/FFF9C4/3E2723?text=No+Image';
-            if (imageElement) {
-                image = imageElement.src;
-            }
-            const item = { id: card.dataset.productId, name: card.dataset.productName, image: image, variant: v.dataset.variant, price: parseFloat(v.value) };
-            toggleWishlist(item, btn);
-        }
-        
-        function handleKnowMore(btn) {
-            const card = btn.closest('.product-card');
-            modalTitle.textContent = card.dataset.productName;
-            modalDescription.textContent = card.dataset.detailedDescription || 'No description available.';
-            knowMoreModal.classList.remove('hidden');
-            setTimeout(() => knowMoreModal.classList.remove('opacity-0'), 10);
-            setTimeout(() => knowMoreModal.querySelector('.modal-content').classList.remove('scale-95'), 10);
-        }
-
-        function closeModal() {
-            knowMoreModal.querySelector('.modal-content').classList.add('scale-95');
-            knowMoreModal.classList.add('opacity-0');
-            setTimeout(() => knowMoreModal.classList.add('hidden'), 300);
-        }
-
-        function handleGalleryNav(button, direction) {
-            const card = button.closest('.product-card');
-            const images = card.querySelectorAll('.gallery-image');
-            const current = card.querySelector('.gallery-image.active');
-            let currentIndex = parseInt(current.dataset.index);
-            let newIndex;
-            if (direction === 'next') {
-                newIndex = (currentIndex + 1) % images.length;
-            } else {
-                newIndex = (currentIndex - 1 + images.length) % images.length;
-            }
-            updateGallery(card, newIndex);
-        }
-
-        function handleGalleryDot(dot) {
-            const card = dot.closest('.product-card');
-            const newIndex = parseInt(dot.dataset.index);
-            updateGallery(card, newIndex);
-        }
-
-        function updateGallery(card, newIndex) {
-            const images = card.querySelectorAll('.gallery-image');
-            const dots = card.querySelectorAll('.dot');
-            images.forEach((img, idx) => img.classList.toggle('active', idx === newIndex));
-            if (dots.length > 0) {
-                dots.forEach((dot, idx) => dot.classList.toggle('active', idx === newIndex));
-            }
-        }
-        
-        function loadStateFromLocalStorage() {
-            cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
-            wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [];
-        }
-        function saveState() {
-            localStorage.setItem(CART_KEY, JSON.stringify(cart));
-            localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
-        }
-        function addToCart(newItem) {
-            const existing = cart.find(i => i.id === newItem.id && i.variant === newItem.variant);
-            if (existing) existing.quantity += newItem.quantity;
-            else cart.push(newItem);
-            updateAllCartUI();
-        }
-        function removeFromCart(id, variant) {
-            cart = cart.filter(i => !(i.id === id && i.variant === variant));
-            updateAllCartUI();
-        }
-        function updateCartQuantity(id, variant, qty) {
-            if (qty < 1) return removeFromCart(id, variant);
-            const item = cart.find(i => i.id === id && i.variant === variant);
-            if (item) item.quantity = qty;
-            updateAllCartUI();
-        }
-        function toggleWishlist(item, btn) {
-            const idx = wishlist.findIndex(w => w.id === item.id && w.variant === item.variant);
-            if (idx > -1) wishlist.splice(idx, 1);
-            else wishlist.push(item);
-            btn.classList.toggle('active', idx === -1);
-            updateAllWishlistUI();
-        }
-
-        function removeFromWishlist(id, variant) {
-            wishlist = wishlist.filter(item => !(item.id === id && item.variant === variant));
-            updateAllWishlistUI();
-
-            const productCard = document.querySelector(`.product-card[data-product-id="${id}"]`);
-            if (productCard) {
-                const selectedVariantInput = productCard.querySelector('input[type="radio"]:checked');
-                if (selectedVariantInput && selectedVariantInput.dataset.variant === variant) {
-                    productCard.querySelector('.wishlist-btn').classList.remove('active');
-                }
-            }
-        }
-
-        function moveFromWishlistToCart(item) {
-            wishlist = wishlist.filter(w => !(w.id === item.id && w.variant === item.variant));
-            addToCart({...item, quantity: 1});
-            const card = document.querySelector(`.product-card[data-product-id="${item.id}"]`);
-            if (card) updateCardWishlistStatus(card);
-            updateAllWishlistUI();
-            showToast(`${item.name} moved to cart!`, 'success');
-        }
-        function updateAllCartUI() {
-            renderCart();
-            updateCartHeader();
-            saveState();
-        }
-        function updateAllWishlistUI() {
-            renderWishlist();
-            updateWishlistCount();
-            saveState();
-        }
-        function renderCart() {
-            const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
-            cartTotalEl.textContent = `₹${total.toFixed(2)}`;
-            cartItemsContainer.innerHTML = cart.length === 0 ? `<p class="text-gray-500 text-center mt-8">Your cart is empty.</p>` : cart.map(item => `
-                <div class="flex items-center gap-4 py-3 border-b">
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain rounded-md p-1 bg-gray-50">
-                    <div class="flex-grow">
-                        <p class="font-bold text-sm">${item.name}</p>
-                        <p class="text-xs text-gray-500">${item.variant}</p>
-                        <p class="font-semibold text-amber-800 text-sm mt-1">₹${item.price.toFixed(2)}</p>
-                    </div>
-                    <div class="flex items-center border border-gray-300 rounded-md">
-                        <button class="cart-quantity-btn p-2" data-action="decrease" data-id="${item.id}" data-variant="${item.variant}">-</button>
-                        <input type="number" class="w-10 text-center text-sm border-none focus:ring-0" value="${item.quantity}" min="1" data-id="${item.id}" data-variant="${item.variant}">
-                        <button class="cart-quantity-btn p-2" data-action="increase" data-id="${item.id}" data-variant="${item.variant}">+</button>
-                    </div>
-                    <button class="remove-from-cart-btn text-gray-400 hover:text-red-500 p-2" data-id="${item.id}" data-variant="${item.variant}"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg></button>
-                </div>`).join('');
-        }
-        function renderWishlist() {
-            wishlistItemsContainer.innerHTML = wishlist.length === 0 ? `<p class="text-gray-500 text-center mt-8">Your wishlist is empty.</p>` : wishlist.map(item => `
-                <div class="flex items-center gap-4 py-2 border-b">
-                    <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-contain rounded-md p-1 bg-gray-50">
-                    <div class="flex-grow">
-                        <p class="font-bold text-sm">${item.name}</p>
-                        <p class="text-xs text-gray-500">${item.variant}</p>
-                        <p class="font-semibold text-amber-800 text-sm mt-1">₹${item.price.toFixed(2)}</p>
-                    </div>
-                    <button class="move-to-cart-btn btn-primary text-xs px-3 py-2 rounded-md" data-item='${JSON.stringify(item)}'>Move to Cart</button>
-                    <button class="remove-from-wishlist-btn text-gray-400 hover:text-red-500 p-2" data-id="${item.id}" data-variant="${item.variant}">
-                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-                    </button>
-                </div>`).join('');
-            wishlistItemsContainer.querySelectorAll('.move-to-cart-btn').forEach(btn => btn.addEventListener('click', e => moveFromWishlistToCart(JSON.parse(e.currentTarget.dataset.item))));
-        }
-        function updateCartHeader() {
-            const count = cart.reduce((acc, i) => acc + i.quantity, 0);
-            const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
-            const header = document.getElementById('cart-total-header');
-            cartCountBadge.textContent = count;
-            cartCountBadge.classList.toggle('hidden', count === 0);
-            header.textContent = `₹${total.toFixed(2)}`;
-            header.classList.toggle('hidden', total === 0);
-        }
-        function updateWishlistCount() {
-            const count = wishlist.length;
-            wishlistCountBadge.textContent = count;
-            wishlistCountBadge.classList.toggle('hidden', count === 0);
-        }
-        function updateCardWishlistStatus(card) {
-            const v = card.querySelector('input[type="radio"]:checked');
-            if (!v) return;
-            const isInWishlist = wishlist.some(i => i.id === card.dataset.productId && i.variant === v.dataset.variant);
-            card.querySelector('.wishlist-btn').classList.toggle('active', isInWishlist);
-        }
-        function showToast(message, type = 'success') {
-            const toast = document.createElement('div');
-            toast.className = `toast-notification ${type}`;
-            toast.textContent = message;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.classList.add('show'), 100);
-            setTimeout(() => {
-                toast.classList.remove('show');
-                toast.addEventListener('transitionend', () => toast.remove());
-            }, 3000);
-        }
-
-        init();
-    });
+        });
     </script>
+
 </body>
 </html>
 
