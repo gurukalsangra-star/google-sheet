@@ -62,16 +62,15 @@
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .btn-primary {
-            background-image: linear-gradient(to right, #f87171 0%, #ef4444 51%, #f87171 100%); /* Red Gradient */
-            background-size: 200% auto;
-            color: white;
+            background-color: #fdba74; /* Light Orange */
+            color: #000000; /* Black */
             transition: all 0.4s ease;
-            border: none;
+            border: 1px solid transparent;
         }
         .btn-primary:hover {
-            background-position: right center; /* change the direction of the change here */
+            background-color: #fb923c; /* Darker Orange */
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px 0 rgba(239, 68, 68, 0.4); /* Red Shadow */
+            box-shadow: 0 4px 15px 0 rgba(251, 146, 60, 0.4); /* Orange Shadow */
         }
         .variant-label input:checked + span {
             border-color: #8D6E63;
@@ -146,9 +145,9 @@
             background-color: #D7CCC8;
         }
         .category-btn.active {
-            background-color: #FDD835; /* Dark Yellow */
-            color: #B71C1C; /* Red Text */
-            border-color: #FBC02D; 
+            background-color: #fdba74; /* Light Orange */
+            color: #000000; /* Black */
+            border-color: #fb923c; /* Darker Orange */
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         /* Image Gallery Styles */
@@ -466,6 +465,30 @@
         </div>
     </div>
 
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4 opacity-0">
+        <div class="modal-content bg-white rounded-lg shadow-xl p-6 w-full max-w-md transform scale-95 relative">
+            <!-- Step 1: New or Returning Customer -->
+            <div id="checkout-step-1">
+                <h3 class="text-2xl font-brand font-bold text-gray-800 mb-4 text-center">Confirm Your Order</h3>
+                <p class="text-gray-600 mb-6 text-center">Are you a new customer?</p>
+                <div class="flex justify-center gap-4">
+                    <button id="new-customer-btn" class="btn-primary flex-1 py-3 rounded-lg font-semibold">Yes, I'm new</button>
+                    <button id="returning-customer-btn" class="bg-gray-200 text-gray-800 flex-1 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors">No, I'm returning</button>
+                </div>
+            </div>
+            <!-- Step 2: Address for New Customer -->
+            <div id="checkout-step-2" class="hidden">
+                <h3 class="text-2xl font-brand font-bold text-gray-800 mb-4 text-center">Shipping Address</h3>
+                <p class="text-gray-600 mb-4 text-center text-sm">Please enter your full delivery address.</p>
+                <textarea id="shipping-address-input" rows="4" class="w-full border-gray-300 rounded-md p-2 focus:ring-amber-500 focus:border-amber-500" placeholder="Full Name&#10;House No., Street Name&#10;City, State, Pincode&#10;Landmark (optional)"></textarea>
+                <p id="address-error" class="text-red-500 text-xs mt-1 hidden">Address cannot be empty.</p>
+                <button id="complete-checkout-btn" class="w-full btn-primary py-3 rounded-lg font-semibold mt-4">Complete Checkout</button>
+            </div>
+            <button id="close-checkout-modal-btn" class="absolute top-2 right-4 text-2xl text-gray-500 hover:text-gray-800">&times;</button>
+        </div>
+    </div>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -496,7 +519,16 @@
               closeModalBtn = document.getElementById('close-modal-btn'),
               howToOrderBtn = document.getElementById('how-to-order-btn'),
               howToOrderModal = document.getElementById('how-to-order-modal'),
-              closeHowToOrderModalBtn = document.getElementById('close-how-to-order-modal-btn');
+              closeHowToOrderModalBtn = document.getElementById('close-how-to-order-modal-btn'),
+              checkoutModal = document.getElementById('checkout-modal'),
+              newCustomerBtn = document.getElementById('new-customer-btn'),
+              returningCustomerBtn = document.getElementById('returning-customer-btn'),
+              completeCheckoutBtn = document.getElementById('complete-checkout-btn'),
+              closeCheckoutModalBtn = document.getElementById('close-checkout-modal-btn'),
+              shippingAddressInput = document.getElementById('shipping-address-input'),
+              addressError = document.getElementById('address-error'),
+              checkoutStep1 = document.getElementById('checkout-step-1'),
+              checkoutStep2 = document.getElementById('checkout-step-2');
         
         async function init() {
             loadStateFromLocalStorage();
@@ -521,27 +553,18 @@
                     product[header.trim()] = value;
                 });
                 
-                product.variants = (product.variants || '').split(':').map(v => ({
-                    size: (v.split('|')[0] || '').trim(), 
-                    price: parseFloat(v.split('|')[1]) || 0,
-                    images: []
-                })).filter(v => v.size && v.price > 0);
+                product.variants = (product.variants || '').split(':').map(v_str => {
+                    const parts = v_str.split('|').map(p => p.trim());
+                    const size = parts[0] || '';
+                    const price = parseFloat(parts[1]) || 0;
+                    const images = parts.slice(2).filter(url => url); // Get all parts from index 2 onwards
+                    return { size, price, images };
+                }).filter(v => v.size && v.price > 0);
                 
                 product.galleryImages = [
                     product.galleryImage1, product.galleryImage2, product.galleryImage3,
                     product.galleryImage4, product.galleryImage5, product.galleryImage6
                 ].filter(url => url && url.trim() !== '');
-
-                for(let i = 1; i <= 13; i++) {
-                    const field = `VariantImage${i}`;
-                    if (product[field] && product[field].includes('|')) {
-                        const [size, url] = product[field].split('|').map(s => s.trim());
-                        const targetVariant = product.variants.find(v => v.size === size);
-                        if(targetVariant) {
-                            targetVariant.images.push(url);
-                        }
-                    }
-                }
 
                 product.order = parseInt(product.order, 10) || 99;
                 return product;
@@ -703,28 +726,44 @@
                 }
             });
 
-            checkoutBtn.addEventListener('click', () => {
-                if (cart.length === 0) return showToast("Your cart is empty!", 'error');
-                let msg = "I want to order:\n\n" + cart.map(i => `*${i.name}*\n - Size: ${i.variant}\n - Qty: ${i.quantity}\n - Price: ₹${(i.price * i.quantity).toFixed(2)}`).join('\n\n');
-                const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
-                msg += `\n\n*Total: ₹${total.toFixed(2)}*`;
-                window.open(`https://wa.me/916262120120?text=${encodeURIComponent(msg)}`, '_blank');
-            });
-            closeModalBtn.addEventListener('click', closeModal);
-            knowMoreModal.addEventListener('click', e => e.target === knowMoreModal && closeModal());
+            checkoutBtn.addEventListener('click', handleCheckoutStart);
+            returningCustomerBtn.addEventListener('click', handleReturningCustomerCheckout);
+            newCustomerBtn.addEventListener('click', handleNewCustomer);
+            completeCheckoutBtn.addEventListener('click', handleCompleteCheckout);
+            closeCheckoutModalBtn.addEventListener('click', closeCheckoutModal);
+            checkoutModal.addEventListener('click', e => e.target === checkoutModal && closeCheckoutModal());
+            
+            closeModalBtn.addEventListener('click', closeKnowMoreModal);
+            knowMoreModal.addEventListener('click', e => e.target === knowMoreModal && closeKnowMoreModal());
 
             howToOrderBtn.addEventListener('click', openHowToOrderModal);
             closeHowToOrderModalBtn.addEventListener('click', closeHowToOrderModal);
             howToOrderModal.addEventListener('click', e => e.target === howToOrderModal && closeHowToOrderModal);
         }
-        
-        function handleSearchFilter() {
-            const term = searchInput.value.toLowerCase();
-            document.querySelectorAll('.product-card').forEach(card => {
-                const name = card.dataset.productName.toLowerCase();
-                const isHiddenByCategory = card.closest('.product-section').classList.contains('hidden');
-                card.style.display = (name.includes(term) && !isHiddenByCategory) ? 'flex' : 'none';
+
+        function handleCategoryClick(btn) {
+            document.querySelectorAll('.category-btn.active').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const targetId = btn.dataset.target;
+            document.querySelectorAll('.product-section').forEach(s => {
+                s.classList.toggle('hidden', `#${s.id}` !== targetId);
             });
+            searchInput.value = '';
+            handleSearchFilter();
+
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                setTimeout(() => {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra margin
+    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }, 100);
+            }
         }
         
         function handleLiveSearch(e) {
@@ -762,36 +801,82 @@
                     }, 100);
                     
                     searchResultsContainer.classList.add('hidden');
-                    searchInput.value = '';
+                     searchInput.value = '';
                 });
             });
         }
+        
+        function generateWhatsAppLink(address = '') {
+            let orderDetails = cart.map(i => `*${i.name}*\n - Size: ${i.variant}\n - Qty: ${i.quantity}\n - Price: ₹${(i.price * i.quantity).toFixed(2)}`).join('\n\n');
+            const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
+            let finalMessage = "I want to order:\n\n";
 
-        function handleCategoryClick(btn) {
-            document.querySelectorAll('.category-btn.active').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const targetId = btn.dataset.target;
-            document.querySelectorAll('.product-section').forEach(s => {
-                s.classList.toggle('hidden', `#${s.id}` !== targetId);
-            });
-            searchInput.value = '';
-            handleSearchFilter();
-
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                setTimeout(() => {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const elementPosition = targetSection.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; // 20px extra margin
-    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-                }, 100);
+            if (address.trim() !== '') {
+                finalMessage += `*Shipping Address:*\n${address.trim()}\n\n------------------------\n\n`;
             }
+            
+            finalMessage += orderDetails;
+            finalMessage += `\n\n*Total: ₹${total.toFixed(2)}*`;
+            
+            window.open(`https://wa.me/916262120120?text=${encodeURIComponent(finalMessage)}`, '_blank');
+        }
+
+        function handleCheckoutStart() {
+            if (cart.length === 0) {
+                showToast("Your cart is empty!", 'error');
+                return;
+            }
+            openCheckoutModal();
+        }
+
+        function handleReturningCustomerCheckout() {
+            generateWhatsAppLink();
+            closeCheckoutModal();
+        }
+
+        function handleNewCustomer() {
+            checkoutStep1.classList.add('hidden');
+            checkoutStep2.classList.remove('hidden');
         }
         
+        function handleCompleteCheckout() {
+            const address = shippingAddressInput.value;
+            if (address.trim() === '') {
+                addressError.classList.remove('hidden');
+                shippingAddressInput.focus();
+                return;
+            }
+            addressError.classList.add('hidden');
+            generateWhatsAppLink(address);
+            closeCheckoutModal();
+        }
+
+        function openCheckoutModal() {
+            checkoutStep1.classList.remove('hidden');
+            checkoutStep2.classList.add('hidden');
+            addressError.classList.add('hidden');
+            shippingAddressInput.value = '';
+
+            checkoutModal.classList.remove('hidden');
+            setTimeout(() => checkoutModal.classList.remove('opacity-0'), 10);
+            setTimeout(() => checkoutModal.querySelector('.modal-content').classList.remove('scale-95'), 10);
+        }
+
+        function closeCheckoutModal() {
+            checkoutModal.querySelector('.modal-content').classList.add('scale-95');
+            checkoutModal.classList.add('opacity-0');
+            setTimeout(() => checkoutModal.classList.add('hidden'), 300);
+        }
+
+        function handleSearchFilter() {
+            const term = searchInput.value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                const name = card.dataset.productName.toLowerCase();
+                const isHiddenByCategory = card.closest('.product-section').classList.contains('hidden');
+                card.style.display = (name.includes(term) && !isHiddenByCategory) ? 'flex' : 'none';
+            });
+        }
+
         function handleQuantityClick(btn) {
             const input = btn.closest('div').querySelector('.quantity-input');
             let val = parseInt(input.value);
@@ -860,7 +945,7 @@
             setTimeout(() => knowMoreModal.querySelector('.modal-content').classList.remove('scale-95'), 10);
         }
 
-        function closeModal() {
+        function closeKnowMoreModal() {
             knowMoreModal.querySelector('.modal-content').classList.add('scale-95');
             knowMoreModal.classList.add('opacity-0');
             setTimeout(() => knowMoreModal.classList.add('hidden'), 300);
@@ -1042,8 +1127,4 @@
     </script>
 </body>
 </html>
-
-
-
-
 
